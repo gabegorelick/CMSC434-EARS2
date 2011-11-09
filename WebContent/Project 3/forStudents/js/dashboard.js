@@ -31,14 +31,7 @@ $(document).ready(function() {
 	init_map(accidentList.aaData);								/* initialize map component */
 	drawBarChart(accidentList.aaData);		/* initialize bar chart component */
 	updateAll();
-	
-//	$('#monthSlider').slider({
-//		min: 1,
-//		max: 12,
-//		range: true,
-//		values: [1, 12]
-//	});
-	
+		
 	$('.monthSlider').selectToUISlider({
 		tooltip: false,
 		labels: 12,
@@ -47,6 +40,17 @@ $(document).ready(function() {
 			change: function(event, ui) {
 				start_month = ui.values[0] + 1; // for some reason, values doesn't use the actual value on the option
 				end_month = ui.values[1] + 1;
+			}
+		}
+	});
+	
+	$('.hourSlider').selectToUISlider({
+		tooltip: false,
+		labels: 5,
+		sliderOptions: {
+			change: function(event, ui) {
+				start_hour = ui.values[0]; // spec says these are 0-based
+				end_hour = ui.values[1];
 			}
 		}
 	});
