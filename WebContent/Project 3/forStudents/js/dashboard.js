@@ -31,6 +31,25 @@ $(document).ready(function() {
 	init_map(accidentList.aaData);								/* initialize map component */
 	drawBarChart(accidentList.aaData);		/* initialize bar chart component */
 	updateAll();
+	
+//	$('#monthSlider').slider({
+//		min: 1,
+//		max: 12,
+//		range: true,
+//		values: [1, 12]
+//	});
+	
+	$('.monthSlider').selectToUISlider({
+		tooltip: false,
+		labels: 12,
+		labelSrc: 'text',
+		sliderOptions: {
+			change: function(event, ui) {
+				start_month = ui.values[0] + 1; // for some reason, values doesn't use the actual value on the option
+				end_month = ui.values[1] + 1;
+			}
+		}
+	});
 });
 
 function init_table(data) {
@@ -132,8 +151,8 @@ function setMarkers(reportList) {
 	for (i in reportList) {
 		var report = reportList[i];
 		var icon = "images/"+accidentTypes[report[3]].icon;
-		var lat = parseFloat(report[5]) + (Math.random()*0.00025-0.000125)
-		var lng = parseFloat(report[6]) + (Math.random()*0.00025-0.000125)
+		var lat = parseFloat(report[5]) + (Math.random()*0.00025-0.000125);
+		var lng = parseFloat(report[6]) + (Math.random()*0.00025-0.000125);
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(lat,lng),
 			map : map,

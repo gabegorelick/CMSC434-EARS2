@@ -6,6 +6,7 @@
 		@import "css/style.css";									/* my custom document CSS setting width, global layout, fonts etc */
 		@import "css/demo_page.css";								/* dataTable basic CSS */
 		@import "css/demo_table_jui.css";							/* dataTable basic CSS */		
+		@import "css/ui.slider.extras.css";
 		@import "css/ui-lightness/jquery-ui-1.8.16.custom.css";	
 		@import "css/smoothness/jquery-ui-1.8.16.custom.css";		/*  JQuery UI smoothness theme, for header and footer   */
 	</style>
@@ -17,6 +18,7 @@
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script type='text/javascript' src='js/jqBarGraph.1.1.js'></script>		<!-- plugin for barchart -->
 	<script type="text/javascript" src='js/dashboard.js'></script>			<!-- main javascript code -->
+	<script type="text/javascript" src="js/selectToUISlider.jQuery.js"></script>
 </head>
 <body>
 	<div id='left_panel'>
@@ -29,6 +31,39 @@
 				Call <i>UpdateAll()</i> function to apply filters and update all components. 
 
 		</div>
+		
+		<!-- <div id="monthSlider" class="slider"></div> -->
+		<label for="monthSliderStart">Start month</label>
+		<select id="monthSliderStart" class="monthSlider">
+			<option value="1" selected="selected">Jan</option>
+			<option value="2">Feb</option>
+			<option value="3">Mar</option>
+			<option value="4">Apr</option>
+			<option value="5">May</option>
+			<option value="6">Jun</option>
+			<option value="7">Jul</option>
+			<option value="8">Aug</option>
+			<option value="9">Sep</option>
+			<option value="10">Oct</option>
+			<option value="11">Nov</option>
+			<option value="12">Dec</option>
+		</select>
+		<label for="monthSliderEnd">End month</label>
+		<select id="monthSliderEnd" class="monthSlider">
+			<option value="1">Jan</option>
+			<option value="2">Feb</option>
+			<option value="3">Mar</option>
+			<option value="4">Apr</option>
+			<option value="5">May</option>
+			<option value="6">Jun</option>
+			<option value="7">Jul</option>
+			<option value="8">Aug</option>
+			<option value="9">Sep</option>
+			<option value="10">Oct</option>
+			<option value="11">Nov</option>
+			<option value="12" selected="selected">Dec</option>
+		</select>
+		
 		<div id='keywordFilter' style="float:left; width:400px; margin:20px;">
 			Search keyword : <input type='text' id='keywordInput'></input>
 			<input type='button' value='UpdateAll()' onclick='updateAll();'></input>
