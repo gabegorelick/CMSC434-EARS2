@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<style type="text/css" title="currentStyle">
+		@import "css/style.css";									/* my custom document CSS setting width, global layout, fonts etc */
+		@import "css/demo_page.css";								/* dataTable basic CSS */
+		@import "css/demo_table_jui.css";							/* dataTable basic CSS */		
+		@import "css/ui-lightness/jquery-ui-1.8.16.custom.css";	
+		@import "css/smoothness/jquery-ui-1.8.16.custom.css";		/*  JQuery UI smoothness theme, for header and footer   */
+	</style>
+	<script type='text/javascript' src='js/sampleData.js'></script>			<!-- data file -->
+	
+	<script type='text/javascript' src='js/jquery-1.6.2.min.js'></script>					<!-- load JQuery plugin -->
+	<script type='text/javascript' src='js/jquery-ui-1.8.16.custom.min.js'></script>					<!-- load JQuery plugin -->
+	<script type='text/javascript' src='js/jquery.dataTables.js'></script>		<!-- load dataTable plugin -->
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script type='text/javascript' src='js/jqBarGraph.1.1.js'></script>		<!-- plugin for barchart -->
+	<script type="text/javascript" src='js/dashboard.js'></script>			<!-- main javascript code -->
+</head>
+<body>
+	<div id='left_panel'>
+	<div id='filter_panel'>
+		<h2> Control panel</h2>
+		<div> 	This panel should contain three UI components(keyword search, filter by month, filter by hour) for filtering data.
+				Keyword search is already implemented, but others must be added by students. <br>
+				<b>Month filter</b> : Use any range slider UI to select a range of months within 1~12 interval (e.g. 6~8). Each month should be stored into <i>start_month</i> and <i>end_month</i> global javascript variable.<br>    
+				<b>Hour filter</b> : Same above. The interval is 0~23. Variables are <i>start_hour</i> and <i>end_hour</i>.<br>
+				Call <i>UpdateAll()</i> function to apply filters and update all components. 
+
+		</div>
+		<div id='keywordFilter' style="float:left; width:400px; margin:20px;">
+			Search keyword : <input type='text' id='keywordInput'></input>
+			<input type='button' value='UpdateAll()' onclick='updateAll();'></input>
+		</div>
+		<div style="clear:both"></div>
+		<div style="color:red">delete this instruction before submission. Position, size and style of this panel is 
+		expected to be redesigned by students.</div>
+		
+	</div>
+
+	<div>
+		<table id="dTable" class="display">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Time</th>
+				<th>Location</th>
+				<th>Type</th>
+				<th>Injured</th>
+			</tr>
+
+		</thead>
+		<tbody>
+		</tbody>
+		</table>
+	</div>
+	</div>
+
+
+	<div id='chart'></div>
+	<div id='map'></div>
+
+
+	
+	
+</body>

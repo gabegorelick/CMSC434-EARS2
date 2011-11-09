@@ -1,0 +1,53 @@
+body {
+    font: 0.8em Verdana, Tahoma, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #fff;
+    
+}
+
+#container {
+	float:left;
+    padding: 0;
+    min-width:1020px;
+}
+
+#filter_panel {
+    padding:0 10px 10px 10px;
+    line-height:150%;
+    margin:5px;
+    background-color:#eee;
+    border:1px solid #dedede;	
+}
+
+#left_panel {
+    float:left;
+    width:500px;
+    
+}
+#right_panel {
+	float:right;
+	width:500px;
+}
+
+#chart {
+        float: left;
+        width:500px;
+	border:0px solid #eee; 
+	background-color:#fff; 
+	padding:0px; 
+}
+ 
+#map {
+	float:left;
+	width:500px;
+	height:500px;
+}
+
+tbody tr td:first-child {
+	text-align:center;
+}
+tbody tr td:eq(2) {
+	text-align:center;
+}
