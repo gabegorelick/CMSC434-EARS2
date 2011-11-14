@@ -17,6 +17,7 @@ var dt;					// dataTable component
 var chart;				// bar chart component
 
 var markersArray = [];	// markers shown on Google Map
+var filteredData;
 
 var start_month =1;  	// changing this value will affect on data filtering. connect this to slider UI
 var end_month = 12;		// changing this value will affect on data filtering. connect this to slider UI
@@ -46,7 +47,7 @@ $(document).ready(function() {
 	
 	$('.hourSlider').selectToUISlider({
 		tooltip: false,
-		labels: 5,
+		labels: 6,
 		sliderOptions: {
 			change: function(event, ui) {
 				start_hour = ui.values[0]; // spec says these are 0-based
@@ -64,7 +65,7 @@ function init_table(data) {
 		"bFilter":false,							/* show keyword search */
 		"bSort": true,							/* sorting enabled */
 		"bInfo": false,					
-		"bDestroy": true,						// every time it's called, it destroys previous table and makes new one. 
+		"bDestroy": true						// every time it's called, it destroys previous table and makes new one. 
 	});
 }
 /* create google map object */
@@ -160,12 +161,12 @@ function setMarkers(reportList) {
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(lat,lng),
 			map : map,
-			title : report[0],
+			title : report[3],
 			icon: icon
 		});
 		markersArray.push(marker);
 		google.maps.event.addListener(marker,'click',function() {
-			alert("ouch!"+report[0]);
+			alert("ouch!"+marker.title);
 		});
 	}
 }
@@ -177,6 +178,14 @@ function clearMarkers() {
 		}
 		markersArray.length = 0;
 	}
+}
+//extended feature of datatable.  Retrieve a data array for rows after filtering. Returned in the current sorting order. //
+$.fn.dataTableExt.oApi.fnGetFilteredData = function ( oSettings ) {
+	var a = [];
+	for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ ) {
+		a.push(oSettings.aoData[ oSettings.aiDisplay[i] ]._aData);
+	}
+	return a;
 }
 
 // from the entire dataset, it returns items containing current keyword and within the date/hour range //

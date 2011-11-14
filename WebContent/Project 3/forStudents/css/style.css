@@ -8,41 +8,63 @@ body {
 }
 
 #container {
-	float:left;
     padding: 0;
-    min-width:1020px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1030px;
+/*    width calcuated on resize*/
 }
 
 #filter_panel {
-    padding:0 10px 10px 10px;
+    float: left;
+    width:438px;
+    padding:0 30px 20px 30px;
     line-height:150%;
     margin:5px;
-    background-color:#eee;
-    border:1px solid #dedede;	
+    background-color:#eeeeee;
+    border:1px solid #dedede;
+    
+    border: 1px solid #aaaaaa;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+#keyword_filter {
+    float: left;
+    width:400px;
+    margin-bottom:20px;
 }
 
-#left_panel {
-    float:left;
-    width:500px;
-    
-}
-#right_panel {
-	float:right;
-	width:500px;
+#dataTables_wrapper {
+    float: left;
+    clear: left;
+    width: 500px;
+    margin:5px;
 }
 
 #chart {
-        float: left;
+        float: right;
         width:500px;
 	border:0px solid #eee; 
 	background-color:#fff; 
+        margin:5px;
 	padding:0px; 
 }
  
 #map {
-	float:left;
+	float:right;
+	clear: right;
 	width:500px;
 	height:500px;
+        margin:5px;
+}
+
+.left {
+    float: left;
+}
+
+.slider_wrapper {
+    height: 60px;
 }
 
 tbody tr td:first-child {

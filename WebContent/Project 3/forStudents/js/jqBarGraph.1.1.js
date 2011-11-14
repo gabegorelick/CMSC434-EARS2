@@ -122,6 +122,9 @@
 
 		colPosition = 0; // for printing colors on simple bar graph
 
+/* added by Alisa Chen to position legend on left*/
+		$(el).append("<div style='margin: 0px; padding: 0px'>");
+
  		for(var val in data){
  			
  			valueData = data[val][0];
@@ -215,7 +218,11 @@
  			
  		}
  			
- 		//creating legend array from legends param
+
+ /* added by Alisa Chen to position legend on left*/
+		$(el).append("</div>");
+
+		//creating legend array from legends param
  		for(var l in arr.legends){
  			leg.push([ arr.colors[l], arr.legends[l], el.id, l ]);
  		}
@@ -224,13 +231,14 @@
  		
  		//position of legend
  		if(arr.legend){
+ /* modified by Alisa Chen to position legend on left*/
 			$(el).append("<div id='legendHolder"+unique+"'></div>");
-	 		$('#legendHolder'+unique).css({ 'width': legendWidth, 'text-align' : 'left','font-size':10});
+	 		$('#legendHolder'+unique).css({'width': legendWidth, 'text-align' : 'right','font-size':10});
 	 		$('#legendHolder'+unique).css('position','absolute');
 	 		$('#legendHolder'+unique).css('right',0);
 	 		$('#legendHolder'+unique).css('bottom',15);
 	 		$('#legendHolder'+unique).append(legend);
-	 		$('.legendBar'+el.id).css({ 'float':'left', 'margin': 3, 'height': 12, 'width': 20, 'font-size': 1});
+	 		$('.legendBar'+el.id).css({ 'float':'right', 'margin': 3, 'height': 12, 'width': 20, 'font-size': 1});
  		}
  		
  		//position of title
