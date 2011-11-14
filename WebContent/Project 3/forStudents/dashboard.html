@@ -5,7 +5,7 @@
 	<style type="text/css" title="currentStyle">
 		@import "css/style.css";									/* my custom document CSS setting width, global layout, fonts etc */
 		@import "css/demo_page.css";								/* dataTable basic CSS */
-		@import "css/demo_table_jui.css";							/* dataTable basic CSS */		
+		@import "css/table_jui.css";							/* dataTable basic CSS */		
 		@import "css/ui.slider.extras.css";
 		@import "css/ui-lightness/jquery-ui-1.8.16.custom.css";	
 		@import "css/smoothness/jquery-ui-1.8.16.custom.css";		/*  JQuery UI smoothness theme, for header and footer   */
@@ -21,18 +21,14 @@
 	<script type="text/javascript" src="js/selectToUISlider.jQuery.js"></script>
 </head>
 <body>
-	<div id='left_panel'>
+<div id='container'>
+	<div id='chart'></div>
+	
 	<div id='filter_panel'>
 		<h2> Control panel</h2>
-		<div> 	This panel should contain three UI components(keyword search, filter by month, filter by hour) for filtering data.
-				Keyword search is already implemented, but others must be added by students. <br>
-				<b>Month filter</b> : Use any range slider UI to select a range of months within 1~12 interval (e.g. 6~8). Each month should be stored into <i>start_month</i> and <i>end_month</i> global javascript variable.<br>    
-				<b>Hour filter</b> : Same above. The interval is 0~23. Variables are <i>start_hour</i> and <i>end_hour</i>.<br>
-				Call <i>UpdateAll()</i> function to apply filters and update all components. 
+		<br>LINE TO DELETE: Call <i>UpdateAll()</i> function to apply filters and update all components. 
 
-		</div>
-
-		<div style="height: 60px;">
+		<div class="slider_wrapper">
 			<label for="monthSliderStart">Start month</label>
 			<select id="monthSliderStart" class="monthSlider slider">
 				<option value="1" selected="selected">Jan</option>
@@ -65,7 +61,7 @@
 			</select>
 		</div>
 
-		<div>
+		<div class="slider_wrapper">
 			<label for="hourSliderStart">Start hour</label>
 			<select id="hourSliderStart" class="hourSlider slider">
 				<!-- spec says these are 0-based -->
@@ -120,20 +116,16 @@
 				<option value="21">21</option>
 				<option value="22">22</option>
 				<option value="23" selected="selected">23</option>
-			</select>
+			</select>			
 		</div>
 		
-		<div id='keywordFilter' style="float:left; width:400px; margin:20px;">
-			Search keyword : <input type='text' id='keywordInput'></input>
-			<input type='button' value='UpdateAll()' onclick='updateAll();'></input>
+		<div id='keywordFilter'>
+			<input type='text' id='keywordInput'></input>
+			<input type='button' value='Search' onclick='updateAll();'></input>
 		</div>
-		<div style="clear:both"></div>
-		<div style="color:red">delete this instruction before submission. Position, size and style of this panel is 
-		expected to be redesigned by students.</div>
-		
 	</div>
 
-	<div>
+	<div id="dataTables_wrapper">
 		<table id="dTable" class="display">
 		<thead>
 			<tr>
@@ -149,13 +141,7 @@
 		</tbody>
 		</table>
 	</div>
-	</div>
 
-
-	<div id='chart'></div>
 	<div id='map'></div>
-
-
-	
-	
+</div>	
 </body>

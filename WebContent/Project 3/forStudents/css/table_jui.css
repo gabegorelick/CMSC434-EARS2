@@ -229,66 +229,24 @@ table.display td.center {
 }
 
 
-
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DataTables row classes
  */
-table.display tr.odd.gradeA {
-	background-color: #ddffdd;
+table.display tr.odd {
+	background-color: #DBD2E8;
 }
 
-table.display tr.even.gradeA {
-	background-color: #eeffee;
+table.display tr.even {
+	background-color: #EDE9F4;
 }
 
-
-
-
-table.display tr.odd.gradeA {
-	background-color: #ddffdd;
+table.display tr.odd.row_selected td {
+	background-color: #D8CDE6;
 }
 
-table.display tr.even.gradeA {
-	background-color: #eeffee;
+table.display tr.even.row_selected td {
+	background-color: #E2DBED;
 }
-
-table.display tr.odd.gradeC {
-	background-color: #ddddff;
-}
-
-table.display tr.even.gradeC {
-	background-color: #eeeeff;
-}
-
-table.display tr.odd.gradeX {
-	background-color: #ffdddd;
-}
-
-table.display tr.even.gradeX {
-	background-color: #ffeeee;
-}
-
-table.display tr.odd.gradeU {
-	background-color: #ddd;
-}
-
-table.display tr.even.gradeU {
-	background-color: #eee;
-}
-
-
-tr.odd {
-	background-color: #E2E4FF;
-}
-
-tr.even {
-	background-color: white;
-}
-
-
-
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Misc
@@ -343,7 +301,8 @@ td.details {
 
 .paging_full_numbers span.paginate_button,
  	.paging_full_numbers span.paginate_active {
-	border: 1px solid #aaa;
+	border: 1px solid #aaaaaa;
+	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	padding: 2px 5px;
@@ -353,23 +312,15 @@ td.details {
 }
 
 .paging_full_numbers span.paginate_button {
-	background-color: #ddd;
+	background-color: #dddddd;
 }
 
 .paging_full_numbers span.paginate_button:hover {
-	background-color: #ccc;
+	background-color: #ccccc;
 }
 
 .paging_full_numbers span.paginate_active {
 	background-color: #99B3FF;
-}
-
-table.display tr.even.row_selected td {
-	background-color: #B0BED9;
-}
-
-table.display tr.odd.row_selected td {
-	background-color: #9FAFD1;
 }
 
 
