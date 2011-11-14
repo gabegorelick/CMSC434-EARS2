@@ -151,10 +151,10 @@ function convertToChartData(dataSource) {
 
 //clear all the markers in the map and show items in the list
 function setMarkers(reportList) {
-	clearMarkers();
+	// clear all the markers in the map and show items in the list
 	// format : accidentReport; ["2011-05-27", "20", "A.V. Williams Building", "Clinical negligence", "true", "38.99081609", "-76.93652093"]
-	for (i in reportList) {
-		var report = reportList[i];
+	$.each(reportList, function(i,report) {
+//		var report = reportList[i];
 		var icon = "images/"+accidentTypes[report[3]].icon;
 		var lat = parseFloat(report[5]) + (Math.random()*0.00025-0.000125);
 		var lng = parseFloat(report[6]) + (Math.random()*0.00025-0.000125);
@@ -168,8 +168,9 @@ function setMarkers(reportList) {
 		google.maps.event.addListener(marker,'click',function() {
 			alert("ouch!"+marker.title);
 		});
-	}
+	});
 }
+
 // delete all markers from google Map
 function clearMarkers() {
 	if (markersArray) {
@@ -186,7 +187,7 @@ $.fn.dataTableExt.oApi.fnGetFilteredData = function ( oSettings ) {
 		a.push(oSettings.aoData[ oSettings.aiDisplay[i] ]._aData);
 	}
 	return a;
-}
+};
 
 // from the entire dataset, it returns items containing current keyword and within the date/hour range //
 function getFilteredData() {
