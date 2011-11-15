@@ -1,17 +1,17 @@
 // main functionality
 
-var accidentTypes = {"Auto accidents":{"icon":"icon_auto_accidents.png","color":"#967154"},
-"Bicycle accidents":{"icon":"icon_bicycle_accidents.png","color":"#847E1F"},
-"Slips, trips and fall":{"icon":"icon_slips.png","color":"#EF8833"},
+var accidentTypes = {"Auto accident":{"icon":"icon_auto_accidents.png","color":"#967154"},
+"Bicycle accident":{"icon":"icon_bicycle_accidents.png","color":"#847E1F"},
+"Slip, trip, or fall":{"icon":"icon_slips.png","color":"#EF8833"},
 "Clinical negligence":{"icon":"icon_clinical_negligence.png","color":"#E05A56"},
 "Work-related accident":{"icon":"icon_work_related_accidents.png","color":"#3F7DD4"},
-"Animal accidents":{"icon":"icon_animal_accidents.png","color":"#46884C"},
+"Animal accident":{"icon":"icon_animal_accidents.png","color":"#46884C"},
 "Food poisoning":{"icon":"icon_food_poisoning.png","color":"#7BC4BB"},
-"Assaults and hijacking":{"icon":"icon_assulates_and_hijacking.png","color":"#A5B342"},
-"Sports Injury":{"icon":"icon_sports_injury.png","color":"#9665C6"}
+"Assault or hijacking":{"icon":"icon_assulates_and_hijacking.png","color":"#A5B342"},
+"Sports injury":{"icon":"icon_sports_injury.png","color":"#9665C6"}
 };
 var colors = ["#967154","#847E1F","#EF8833","#E05A56","#3F7DD4","#46884C","#7BC4BB","#A5B342","#9665C6"];
-var months = {"01":'Jan.',"02":'Feb.',"03":'Mar.',"04":'Apr.',"05":'May',"06":'Jun.',"07":'Jul.',"08":'Aug.',"09":'Sep.',"10":'Oct.',"11":'Nov.',"12":'Dec.'};
+var months = {"01":'Jan',"02":'Feb',"03":'Mar',"04":'Apr',"05":'May',"06":'Jun',"07":'Jul',"08":'Aug',"09":'Sep',"10":'Oct',"11":'Nov',"12":'Dec'};
 var map; // google Map component
 var dt; // dataTable component
 var chart; // bar chart component
@@ -39,7 +39,7 @@ $(document).ready(function() {
 		labelSrc: 'text',
 		sliderOptions: {
 			change: function(event, ui) {
-				start_s = ui.values[0] + 1; // for some reason, values doesn't use the actual value on the option
+				start_month = ui.values[0] + 1; // for some reason, values doesn't use the actual value on the option
 				end_month = ui.values[1] + 1;
 				updateAll();
 			}
@@ -61,18 +61,18 @@ $(document).ready(function() {
 });
 
 function init_table(data) {
-	dt= $('#dTable').dataTable( {				/*  constructor with options */
+	dt= $('#dTable').dataTable( {		/*  constructor with options */
 		"aaData": data,			/* set the data in array format */
 		"bPaginate": false,
 		/*"sPaginationType": "full_numbers",		 pagination option */
 		"bScrollInfinite": true,
 		"bScrollCollapse": true,
 		"sScrollY": "470px",
-		"bJQueryUI": true,						/* use JQuery UI theme */
-		"bFilter":false,							/* show keyword search */
-		"bSort": true,							/* sorting enabled */
+		"bJQueryUI": true,		/* use JQuery UI theme */
+		"bFilter":false,		/* show keyword search */
+		"bSort": true,			/* sorting enabled */
 		"bInfo": false,					
-		"bDestroy": true						// every time it's called, it destroys previous table and makes new one. 
+		"bDestroy": true		// every time it's called, it destroys previous table and makes new one. 
 	});
 }
 /* create google map object */
@@ -116,17 +116,48 @@ function updateAll() {
 	drawBarChart(filteredData);
 }
 
+function getMonth(str) {
+	if (str == "Jan") {
+		return "01"
+	} else if (str == "Feb") {
+		return "02"
+	} else if (str == "Mar") {
+		return "03"
+	} else if (str == "Apr") {
+		return "04"
+	} else if (str == "May") {
+		return "05"
+	} else if (str == "Jun") {
+		return "06"
+	} else if (str == "Jul") {
+		return "07"
+	} else if (str == "Aug") {
+		return "08"
+	} else if (str == "Sep") {
+		return "09"
+	} else if (str == "Oct") {
+		return "10"
+	} else if (str == "Nov") {
+		return "11"
+	} else if (str == "Dec") {
+		return "12"
+	}
+	
+	return false;
+}
+
 // To use bar chart, accidents need to be aggregated by months and then by types
 // e.g.  [[5,'Auto accident','#967154'],[3,'Bicycle accident','#847E1F'],...],'January'],    [[...],'February']   ,...
 // To use bar chart, accidents need to be aggregated by months and then by types
-// e.g. [[5,'Auto accidents','#967154'],[3,'Bicycle accidents','#847E1F'],...],'January'], [[...],'Febraury'] ,...
+// e.g. [[5,'Auto accidents','#967154'],[3,'Bicycle accidents','#847E1F'],...],'January'], [[...],'February'] ,...
 function convertToChartData(dataSource) {
 	// first, aggregates accident by types for each month
 	var aggr = {};
 	for (monthIndex in months) aggr[monthIndex]={};
 	for (i in dataSource) {
 		var accident = dataSource[i];
-		var a_month = accident[0].substr(5,2);
+//		var a_month = accident[0].substr(5,2);
+		var a_month = getMonth(accident[0].substring(0,3));
 		var a_type = accident[3];
 		// create key if it's the first accident for the month and the type
 		if (!aggr.hasOwnProperty(a_month)) aggr[a_month]={};
@@ -152,7 +183,7 @@ function convertToChartData(dataSource) {
 		byMonth.push(months[monthIndex]); // push 'January' instead of '01'
 		resultArray.push(byMonth);
 		/* the result will look like
-		* [[5,8,6,1,...,3],'January'],[[3,2,5,...,1],'Febraury'],...
+		* [[5,8,6,1,...,3],'January'],[[3,2,5,...,1],'February'],...
 		*/
 		}
 	return resultArray;
@@ -171,11 +202,16 @@ function setMarkers(reportList) {
 			position: new google.maps.LatLng(lat,lng),
 			map : map,
 			title : report[3],
+			date : report[0],
+			time : report[1],
+			building: report[2],
 			icon: icon
 		});
 		markersArray.push(marker);
 		google.maps.event.addListener(marker,'click',function() {
-		alert("ouch!"+marker.title);
+		alert(marker.title + "\n" + marker.building +
+		      "\n" + marker.date + " 2011" +
+		      "\n" + marker.time);
 		});
 	});
 }
@@ -205,7 +241,8 @@ function getFilteredData() {
 	for (var i in dataSource) {
 		var item = dataSource[i];
 		// check date/hour range first
-		var month = parseInt(item[0].split("-")[1],10);
+//		var month = parseInt(item[0].split("-")[1],10);
+		var month = parseInt(getMonth(item[0].split("-")[0]),10);
 		if (month < start_month || month > end_month) continue;
 		var hour = parseInt(item[1],10);
 		if (hour < start_hour || hour > end_hour) continue;

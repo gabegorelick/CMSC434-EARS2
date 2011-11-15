@@ -21,6 +21,10 @@ h2 {
     font-weight: bold;
 }
 
+.right_column h2 {
+    text-align: center;
+}
+
 #container {
     padding: 0;
     margin-left: auto;
@@ -51,8 +55,17 @@ h2 {
     width: 100%;
 }
 
-.column {
+.left_column {
         width: 438px;
+}
+
+.right_column {
+    width: 500px;
+}
+
+.no_spacing {
+    margin: 0;
+    padding: 0;
 }
 
 #keyword_filter {
@@ -68,7 +81,7 @@ h2 {
 }
 
 #chart {
-        float: right;
+/*        float: right;*/
         width:500px;
 	border:0px solid #eee; 
 	background-color:#fff; 
@@ -86,6 +99,10 @@ h2 {
 
 .left {
     float: left;
+}
+
+.right {
+    float: right;
 }
 
 .slider_wrapper {
