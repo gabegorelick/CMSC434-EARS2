@@ -10,7 +10,7 @@
 		@import "css/ui-lightness/jquery-ui-1.8.16.custom.css";	
 		@import "css/smoothness/jquery-ui-1.8.16.custom.css";		/*  JQuery UI smoothness theme, for header and footer   */
 	</style>
-	<script type="text/javascript" src="js/sampleData_.js"></script>			<!-- data file -->
+	<script type="text/javascript" src="js/sampleData.js"></script>			<!-- data file -->
 	
 	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>					<!-- load JQuery plugin -->
 	<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>					<!-- load JQuery plugin -->
@@ -23,12 +23,17 @@
 <body>
 <div id="container">
 	<h1>University of Maryland 2011 EARS Database</h1>
+	<div id="help_panel" class="panel"><div class="column">
+		<h2>Help</h2>
+		<p> Search this year's reported accidents or observe patterns. Use the sliders or drop-down boxes in the Control Panel to adjust the range of months and range of time (by 24-hour clock).  Enter a word or phrase to filter accidents.
+		<br />The table, chart, and map automatically update to match the range and/or filter in the Control Panel.
+		<br />Click on the column headers in the table to sort by that column in ascending or descending order.
+		<br />Click on the flags in the map to get information about the accident.</p>
+	</div></div>
 	<div id="chart"></div>
 	
-	<div id="filter_panel">
+	<div id="filter_panel" class="panel column">
 		<h2>Control Panel</h2>
-		<br>LINE TO DELETE: Call <i>UpdateAll()</i> function to apply filters and update all components. 
-
 		<div class="slider_wrapper">
 			<label for="monthSliderStart">Month from </label>
 			<select id="monthSliderStart" class="monthSlider slider">

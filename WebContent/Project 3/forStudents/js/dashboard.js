@@ -1,27 +1,27 @@
 // main functionality
 
-var accidentTypes = {"Auto accident":{"icon":"icon_auto_accidents.png","color":"#967154"},
-		"Bicycle accident":{"icon":"icon_bicycle_accidents.png","color":"#847E1F"}, 
-		"Slip, trip, or fall":{"icon":"icon_slips.png","color":"#EF8833"}, 
-		"Clinical negligence":{"icon":"icon_clinical_negligence.png","color":"#E05A56"}, 
-		"Work-related accident":{"icon":"icon_work_related_accidents.png","color":"#3F7DD4"}, 
-		"Animal accident":{"icon":"icon_animal_accidents.png","color":"#46884C"}, 
-		"Food poisoning":{"icon":"icon_food_poisoning.png","color":"#7BC4BB"}, 
-		"Assaults or hijacking":{"icon":"icon_assulates_and_hijacking.png","color":"#A5B342"}, 
-		"Sports injury":{"icon":"icon_sports_injury.png","color":"#9665C6"}
-		};
+var accidentTypes = {"Auto accidents":{"icon":"icon_auto_accidents.png","color":"#967154"},
+"Bicycle accidents":{"icon":"icon_bicycle_accidents.png","color":"#847E1F"},
+"Slips, trips and fall":{"icon":"icon_slips.png","color":"#EF8833"},
+"Clinical negligence":{"icon":"icon_clinical_negligence.png","color":"#E05A56"},
+"Work-related accident":{"icon":"icon_work_related_accidents.png","color":"#3F7DD4"},
+"Animal accidents":{"icon":"icon_animal_accidents.png","color":"#46884C"},
+"Food poisoning":{"icon":"icon_food_poisoning.png","color":"#7BC4BB"},
+"Assaults and hijacking":{"icon":"icon_assulates_and_hijacking.png","color":"#A5B342"},
+"Sports Injury":{"icon":"icon_sports_injury.png","color":"#9665C6"}
+};
 var colors = ["#967154","#847E1F","#EF8833","#E05A56","#3F7DD4","#46884C","#7BC4BB","#A5B342","#9665C6"];
-var months = {"01":'Jan',"02":'Feb',"03":'Mar',"04":'Apr',"05":'May',"06":'Jun',"07":'Jul',"08":'Aug',"09":'Sep',"10":'Oct',"11":'Nov',"12":'Dec'};
-var map;				// google Map component
-var dt;					// dataTable component
-var chart;				// bar chart component
+var months = {"01":'Jan.',"02":'Feb.',"03":'Mar.',"04":'Apr.',"05":'May',"06":'Jun.',"07":'Jul.',"08":'Aug.',"09":'Sep.',"10":'Oct.',"11":'Nov.',"12":'Dec.'};
+var map; // google Map component
+var dt; // dataTable component
+var chart; // bar chart component
 
 var markersArray = [];	// markers shown on Google Map
 var filteredData;
 
-var start_month =1;  	// changing this value will affect on data filtering. connect this to slider UI
-var end_month = 12;		// changing this value will affect on data filtering. connect this to slider UI
-var start_hour = 0;		// 
+var start_month = 1;  	// changing this value will affect on data filtering. connect this to slider UI
+var end_month = 12;	// changing this value will affect on data filtering. connect this to slider UI
+var start_hour = 0;	// 
 var end_hour = 23;
 
 
@@ -101,8 +101,7 @@ function drawBarChart(data) {
 		type:false,			// stacked bar chart 
 		width:500,			
 		height:200,
-		animate:false,  showValues:false,
-		title: "Reported Accidents in 2011"
+		animate:false,  showValues:false
 	});
 }
 function updateMap(data) {
@@ -119,13 +118,15 @@ function updateAll() {
 
 // To use bar chart, accidents need to be aggregated by months and then by types
 // e.g.  [[5,'Auto accident','#967154'],[3,'Bicycle accident','#847E1F'],...],'January'],    [[...],'February']   ,...
+// To use bar chart, accidents need to be aggregated by months and then by types
+// e.g. [[5,'Auto accidents','#967154'],[3,'Bicycle accidents','#847E1F'],...],'January'], [[...],'Febraury'] ,...
 function convertToChartData(dataSource) {
 	// first, aggregates accident by types for each month
 	var aggr = {};
 	for (monthIndex in months) aggr[monthIndex]={};
 	for (i in dataSource) {
 		var accident = dataSource[i];
-		var a_month = accident[0].substr(0,2);
+		var a_month = accident[0].substr(5,2);
 		var a_type = accident[3];
 		// create key if it's the first accident for the month and the type
 		if (!aggr.hasOwnProperty(a_month)) aggr[a_month]={};
@@ -136,12 +137,12 @@ function convertToChartData(dataSource) {
 	resultArray = [];
 	monthArray = [];
 	for (monthIndex in months) monthArray.push(monthIndex); // monthArray := ['01','02',...'12']
-	monthArray = monthArray.sort();
+		monthArray = monthArray.sort();
 	for (mI in monthArray) {
 		monthIndex = monthArray[mI];
 		byMonth = [];
 		byType = [];
-		for(typeIndex in accidentTypes) {		
+		for(typeIndex in accidentTypes) {
 			if (aggr[monthIndex][typeIndex]!=undefined)
 				byType.push(aggr[monthIndex][typeIndex]);
 			else
@@ -150,19 +151,19 @@ function convertToChartData(dataSource) {
 		byMonth.push(byType);
 		byMonth.push(months[monthIndex]); // push 'January' instead of '01'
 		resultArray.push(byMonth);
-		/* the result will look like 
-		 * [[5,8,6,1,...,3],'January'],[[3,2,5,...,1],'February'],...
-		 */
-	}
+		/* the result will look like
+		* [[5,8,6,1,...,3],'January'],[[3,2,5,...,1],'Febraury'],...
+		*/
+		}
 	return resultArray;
 }
 
 //clear all the markers in the map and show items in the list
 function setMarkers(reportList) {
-	// clear all the markers in the map and show items in the list
+	clearMarkers();
 	// format : accidentReport; ["2011-05-27", "20", "A.V. Williams Building", "Clinical negligence", "true", "38.99081609", "-76.93652093"]
 	$.each(reportList, function(i,report) {
-//		var report = reportList[i];
+		// var report = reportList[i];
 		var icon = "images/"+accidentTypes[report[3]].icon;
 		var lat = parseFloat(report[5]) + (Math.random()*0.00025-0.000125);
 		var lng = parseFloat(report[6]) + (Math.random()*0.00025-0.000125);
@@ -174,11 +175,10 @@ function setMarkers(reportList) {
 		});
 		markersArray.push(marker);
 		google.maps.event.addListener(marker,'click',function() {
-			alert("ouch!"+marker.title);
+		alert("ouch!"+marker.title);
 		});
 	});
 }
-
 // delete all markers from google Map
 function clearMarkers() {
 	if (markersArray) {
@@ -195,7 +195,7 @@ $.fn.dataTableExt.oApi.fnGetFilteredData = function ( oSettings ) {
 		a.push(oSettings.aoData[ oSettings.aiDisplay[i] ]._aData);
 	}
 	return a;
-};
+}
 
 // from the entire dataset, it returns items containing current keyword and within the date/hour range //
 function getFilteredData() {

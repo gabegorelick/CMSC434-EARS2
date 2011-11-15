@@ -29,10 +29,10 @@ h2 {
 /*    width calcuated on resize*/
 }
 
-#filter_panel {
+
+.panel {
     float: left;
-    width:538px;
-    padding:0 30px 20px 30px;
+    padding: 0px 30px 10px 30px;
     line-height:150%;
     margin:5px;
     background-color:#eeeeee;
@@ -44,22 +44,32 @@ h2 {
     border-radius: 5px;
 }
 
+#filter_panel {
+    clear: left;
+}
+#help_panel {
+    width: 100%;
+}
+
+.column {
+        width: 438px;
+}
+
 #keyword_filter {
     float: left;
     width:400px;
-    margin-bottom:20px;
 }
 
 #dataTables_wrapper {
     float: left;
     clear: left;
-    width: 600px;
+    width: 500px;
     margin:5px;
 }
 
 #chart {
         float: right;
-        width:600px;
+        width:500px;
 	border:0px solid #eee; 
 	background-color:#fff; 
         margin:5px;
@@ -69,7 +79,7 @@ h2 {
 #map {
 	float:right;
 	clear: right;
-	width:600px;
+	width:500px;
 	height:500px;
         margin:5px;
 }
