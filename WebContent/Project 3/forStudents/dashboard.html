@@ -10,26 +10,27 @@
 		@import "css/ui-lightness/jquery-ui-1.8.16.custom.css";	
 		@import "css/smoothness/jquery-ui-1.8.16.custom.css";		/*  JQuery UI smoothness theme, for header and footer   */
 	</style>
-	<script type='text/javascript' src='js/sampleData.js'></script>			<!-- data file -->
+	<script type="text/javascript" src="js/sampleData_.js"></script>			<!-- data file -->
 	
-	<script type='text/javascript' src='js/jquery-1.6.2.min.js'></script>					<!-- load JQuery plugin -->
-	<script type='text/javascript' src='js/jquery-ui-1.8.16.custom.min.js'></script>					<!-- load JQuery plugin -->
-	<script type='text/javascript' src='js/jquery.dataTables.js'></script>		<!-- load dataTable plugin -->
+	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>					<!-- load JQuery plugin -->
+	<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>					<!-- load JQuery plugin -->
+	<script type="text/javascript" src="js/jquery.dataTables.js"></script>		<!-- load dataTable plugin -->
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	<script type='text/javascript' src='js/jqBarGraph.1.1.js'></script>		<!-- plugin for barchart -->
-	<script type="text/javascript" src='js/dashboard.js'></script>			<!-- main javascript code -->
+	<script type="text/javascript" src="js/jqBarGraph.1.1.js"></script>		<!-- plugin for barchart -->
+	<script type="text/javascript" src="js/dashboard.js"></script>			<!-- main javascript code -->
 	<script type="text/javascript" src="js/selectToUISlider.jQuery.js"></script>
 </head>
 <body>
-<div id='container'>
-	<div id='chart'></div>
+<div id="container">
+	<h1>University of Maryland 2011 EARS Database</h1>
+	<div id="chart"></div>
 	
-	<div id='filter_panel'>
-		<h2> Control panel</h2>
+	<div id="filter_panel">
+		<h2>Control Panel</h2>
 		<br>LINE TO DELETE: Call <i>UpdateAll()</i> function to apply filters and update all components. 
 
 		<div class="slider_wrapper">
-			<label for="monthSliderStart">Start month</label>
+			<label for="monthSliderStart">Month from </label>
 			<select id="monthSliderStart" class="monthSlider slider">
 				<option value="1" selected="selected">Jan</option>
 				<option value="2">Feb</option>
@@ -44,7 +45,7 @@
 				<option value="11">Nov</option>
 				<option value="12">Dec</option>
 			</select>
-			<label for="monthSliderEnd">End month</label> 
+			<label for="monthSliderEnd">to </label> 
 				<select id="monthSliderEnd" class="monthSlider slider">
 				<option value="1">Jan</option>
 				<option value="2">Feb</option>
@@ -59,10 +60,12 @@
 				<option value="11">Nov</option>
 				<option value="12" selected="selected">Dec</option>
 			</select>
+			<label for="monthSliderEnd">2011</label> 
 		</div>
 
 		<div class="slider_wrapper">
-			<label for="hourSliderStart">Start hour</label>
+			<label class="align_left">Time</label>
+			<label for="hourSliderStart">from </label>
 			<select id="hourSliderStart" class="hourSlider slider">
 				<!-- spec says these are 0-based -->
 				<option value="0" selected="selected">0</option>
@@ -90,7 +93,7 @@
 				<option value="22">22</option>
 				<option value="23">23</option>
 			</select>
-			<label for="hourSliderEnd">End hour</label>
+			<label for="hourSliderEnd">to </label>
 			<select id="hourSliderEnd" class="hourSlider slider">
 				<option value="0">0</option>
 				<option value="1">1</option>
@@ -119,9 +122,10 @@
 			</select>			
 		</div>
 		
-		<div id='keywordFilter'>
-			<input type='text' id='keywordInput'></input>
-			<input type='button' value='Search' onclick='updateAll();'></input>
+		<div id="keywordFilter">
+			<label for="keywordInput">Word: </label>
+			<input type="text" id="keywordInput"></input>
+			<input type="button" value="Filter" onclick="updateAll();"></input>
 		</div>
 	</div>
 
@@ -133,7 +137,7 @@
 				<th>Time</th>
 				<th>Location</th>
 				<th>Type</th>
-				<th>Injured</th>
+				<th>Injury</th>
 			</tr>
 
 		</thead>
@@ -142,6 +146,6 @@
 		</table>
 	</div>
 
-	<div id='map'></div>
+	<div id="map"></div>
 </div>	
 </body>

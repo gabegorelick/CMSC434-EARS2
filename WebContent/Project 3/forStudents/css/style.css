@@ -1,10 +1,24 @@
 body {
-    font: 0.8em Verdana, Tahoma, Helvetica, sans-serif;
+    font: 0.7em Verdana, Tahoma, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
     background-color: #fff;
     
+}
+
+h1 {
+    padding-left: 30px;
+    font-family: Tahoma, Helvetica, sans-serif;
+    font-size: 2em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: inherit;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 #container {
@@ -17,7 +31,7 @@ body {
 
 #filter_panel {
     float: left;
-    width:438px;
+    width:538px;
     padding:0 30px 20px 30px;
     line-height:150%;
     margin:5px;
@@ -29,6 +43,7 @@ body {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+
 #keyword_filter {
     float: left;
     width:400px;
@@ -38,13 +53,13 @@ body {
 #dataTables_wrapper {
     float: left;
     clear: left;
-    width: 500px;
+    width: 600px;
     margin:5px;
 }
 
 #chart {
         float: right;
-        width:500px;
+        width:600px;
 	border:0px solid #eee; 
 	background-color:#fff; 
         margin:5px;
@@ -54,7 +69,7 @@ body {
 #map {
 	float:right;
 	clear: right;
-	width:500px;
+	width:600px;
 	height:500px;
         margin:5px;
 }
@@ -64,7 +79,7 @@ body {
 }
 
 .slider_wrapper {
-    height: 60px;
+    height: 6em;
 }
 
 tbody tr td:first-child {
