@@ -273,7 +273,7 @@
 	$.fn.jqBarGraph.defaults = {	
 		barSpace: 10,
 		width: 400,
-		height: 300,
+		height: 400,
 		color: '#000000',
 		colors: false,
 		lbl: '',

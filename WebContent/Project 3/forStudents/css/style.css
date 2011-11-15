@@ -1,10 +1,28 @@
 body {
-    font: 0.8em Verdana, Tahoma, Helvetica, sans-serif;
+    font: 0.7em Verdana, Tahoma, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
     background-color: #fff;
     
+}
+
+h1 {
+    padding-left: 30px;
+    font-family: Tahoma, Helvetica, sans-serif;
+    font-size: 2em;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: inherit;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.right_column h2 {
+    text-align: center;
 }
 
 #container {
@@ -15,10 +33,9 @@ body {
 /*    width calcuated on resize*/
 }
 
-#filter_panel {
+.panel {
     float: left;
-    width:438px;
-    padding:0 30px 20px 30px;
+    padding: 0px 30px 10px 30px;
     line-height:150%;
     margin:5px;
     background-color:#eeeeee;
@@ -29,10 +46,33 @@ body {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+
+#filter_panel {
+    clear: left;
+}
+#help_panel {
+    width: 100%;
+}
+
+.left_column {
+        width: 438px;
+}
+
+.right_column {
+    width: 500px;
+}
+
+.no_spacing {
+    margin: 0;
+    padding: 0;
+}
+
 #keyword_filter {
     float: left;
-    width:400px;
-    margin-bottom:20px;
+}
+
+#help_button {
+    float: right;
 }
 
 #dataTables_wrapper {
@@ -43,7 +83,7 @@ body {
 }
 
 #chart {
-        float: right;
+/*        float: right;*/
         width:500px;
 	border:0px solid #eee; 
 	background-color:#fff; 
@@ -63,8 +103,12 @@ body {
     float: left;
 }
 
+.right {
+    float: right;
+}
+
 .slider_wrapper {
-    height: 60px;
+    height: 6em;
 }
 
 tbody tr td:first-child {
