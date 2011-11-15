@@ -25,7 +25,19 @@ var start_hour = 0;	//
 var end_hour = 23;
 
 
-$(document).ready(function() {			
+$(document).ready(function() {
+		// toggle help div with button
+	$("#help_panel").hide();
+	$("#help_button").click(function() {
+		$("#help_panel").slideToggle(500);
+		if ($("#help_button").attr("value") == "Show Help") {
+			$("#help_button").attr("value", "Hide Help");
+		} else /* value == Hide Help */ {
+			$("#help_button").attr("value", "Show Help");
+		}
+		return false;
+	});
+
 	$("#keywordInput").val("");
 	/* initialize main components  */
 	init_table(accidentList.aaData);		/* initialize table component */
@@ -48,7 +60,7 @@ $(document).ready(function() {
 	
 	$('.hourSlider').selectToUISlider({
 		tooltip: false,
-		labels: 6,
+		labels: 7,
 		sliderOptions: {
 			change: function(event, ui) {
 				start_hour = ui.values[0]; // spec says these are 0-based
@@ -56,8 +68,7 @@ $(document).ready(function() {
 				updateAll();
 			}
 		}
-	});
-	
+	});	
 });
 
 function init_table(data) {

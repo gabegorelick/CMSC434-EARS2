@@ -1,3 +1,3 @@
 $(window).resize(function() {
-    alert("resized!");
+	$("#help_panel").append("600px");
 }

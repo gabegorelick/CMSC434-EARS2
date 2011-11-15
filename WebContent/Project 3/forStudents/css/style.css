@@ -33,7 +33,6 @@ h2 {
 /*    width calcuated on resize*/
 }
 
-
 .panel {
     float: left;
     padding: 0px 30px 10px 30px;
@@ -70,7 +69,10 @@ h2 {
 
 #keyword_filter {
     float: left;
-    width:400px;
+}
+
+#help_button {
+    float: right;
 }
 
 #dataTables_wrapper {
