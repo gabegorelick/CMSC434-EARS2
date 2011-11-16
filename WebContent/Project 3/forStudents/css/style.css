@@ -8,11 +8,13 @@ body {
 }
 
 h1 {
-    padding-left: 30px;
     font-family: Tahoma, Helvetica, sans-serif;
     font-size: 2em;
     font-weight: normal;
     text-transform: uppercase;
+    padding: 0px;
+    padding-left: 30px;
+    margin-bottom: 0.2em;
 }
 
 h2 {
@@ -95,7 +97,7 @@ h2 {
 	float:right;
 	clear: right;
 	width:500px;
-	height:500px;
+	height:400px;
         margin:5px;
 }
 

@@ -78,7 +78,7 @@ function init_table(data) {
 		/*"sPaginationType": "full_numbers",		 pagination option */
 		"bScrollInfinite": true,
 		"bScrollCollapse": true,
-		"sScrollY": "470px",
+		"sScrollY": "420px",
 		"bJQueryUI": true,		/* use JQuery UI theme */
 		"bFilter":false,		/* show keyword search */
 		"bSort": true,			/* sorting enabled */
