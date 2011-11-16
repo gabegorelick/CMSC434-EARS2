@@ -41,7 +41,7 @@ $(document).ready(function() {
 	$("#keywordInput").val("");
 	/* initialize main components  */
 	init_table(accidentList.aaData);		/* initialize table component */
-	init_map(accidentList.aaData);								/* initialize map component */
+	init_map(accidentList.aaData);			/* initialize map component */
 	drawBarChart(accidentList.aaData);		/* initialize bar chart component */
 	updateAll();
 		
@@ -69,7 +69,14 @@ $(document).ready(function() {
 				updateAll();
 			}
 		}
-	});	
+	});
+	
+	// for pressing enter in Filter textbox
+	$("#keywordInput").keyup( function(event) {
+		if (event.keyCode == '13') { updateAll() }
+	});
+	
+
 });
 
 function init_table(data) {
@@ -144,6 +151,17 @@ function updateAll() {
 	drawBarChart(filteredData);
 }
 
+// reset button
+function resetFilters() {
+	$("#monthSliderStart").val(1);
+	$("#monthSliderEnd").val(12);
+	$("#hourSliderStart").val(0);
+	$("#hourSliderEnd").val(23);
+	$("#keywordInput").attr("value", "");
+	$('.monthSlider').change();
+	$('.hourSlider').change();
+}
+
 // To use bar chart, accidents need to be aggregated by months and then by types
 // e.g.  [[5,'Auto accident','#967154'],[3,'Bicycle accident','#847E1F'],...],'January'],    [[...],'February']   ,...
 // To use bar chart, accidents need to be aggregated by months and then by types
@@ -207,13 +225,15 @@ function setMarkers(reportList) {
 		});
 		markersArray.push(marker);
 		
-		var content = '<h3>Accident Details</h3>'
+		var content = '<div class="infoWindow no_spacing"><h3>Accident Details</h3>'
 			+ 'Type: ' + marker.type + '<br/>'
 			+ 'Date: ' + marker.date + '<br/>'
 			+ 'Time: ' + marker.time + '<br/>'
-			+ 'Building: ' + marker.building;
+			+ 'Building: ' + marker.building
+			+ '</div>';
 		var infoWindow = new google.maps.InfoWindow({
-		    content: content,
+			title: "Accident Details",
+			content: content,
 		}); 
 		
 		google.maps.event.addListener(marker,'click',function() {
