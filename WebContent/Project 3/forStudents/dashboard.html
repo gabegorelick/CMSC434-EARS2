@@ -23,7 +23,11 @@
 </head>
 <body>
 <div id="container">
-	<h1>University of Maryland 2011 EARS Database</h1>
+	<div class="header">
+		<span class="title">University of Maryland 2011 EARS Database</span>
+		<input id="help_button" type="button" value="Show Help"></input>
+	</div>
+	<div style="clear:both"><!-- clearfix --></div>
 	<div id="help_panel" class="panel"><div class="left_column">
 		<h2>Help</h2>
 		<p> Search this year's reported accidents or observe patterns. Use the sliders or drop-down boxes in the Control Panel to adjust the range of months and range of time (by 24-hour clock).  Enter a word or phrase to filter accidents.
@@ -134,7 +138,6 @@
 			<label for="keywordInput">Keyword: </label>
 			<input type="text" id="keywordInput"></input>
 			<input type="button" value="Filter" onclick="updateAll();"></input>
-			<input id="help_button" type="button" value="Show Help"></input>
 		</div>
 	</div>
 
