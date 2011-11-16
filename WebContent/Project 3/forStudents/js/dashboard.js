@@ -212,17 +212,26 @@ function setMarkers(reportList) {
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(lat,lng),
 			map : map,
-			title : report[3],
+			type : report[3],
 			date : report[0],
 			time : report[1],
 			building: report[2],
 			icon: icon
 		});
 		markersArray.push(marker);
+		
+		var content = '<h3>Accident Details</h3>'
+			+ 'Type: ' + marker.type + '<br/>'
+			+ 'Date: ' + marker.date + '<br/>'
+			+ 'Time: ' + marker.time + '<br/>'
+			+ 'Building: ' + marker.building;
+		var infoWindow = new google.maps.InfoWindow({
+		    content: content
+		}); 
+		
 		google.maps.event.addListener(marker,'click',function() {
-		alert(marker.title + "\n" + marker.building +
-		      "\n" + marker.date + " 2011" +
-		      "\n" + marker.time);
+			// only open one window per marker
+			infoWindow.open(map, marker);
 		});
 	});
 }
