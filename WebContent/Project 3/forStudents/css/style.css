@@ -7,14 +7,16 @@ body {
     
 }
 
-h1 {
+.title {
+    padding-left: 30px;
     font-family: Tahoma, Helvetica, sans-serif;
     font-size: 2em;
     font-weight: normal;
     text-transform: uppercase;
-    padding: 0px;
-    padding-left: 30px;
-    margin-bottom: 0.2em;
+}
+
+.header {
+	margin: 10px 0px 20px 0px;
 }
 
 h2 {
@@ -54,6 +56,7 @@ h2 {
 }
 #help_panel {
     width: 100%;
+    overflow: overlay;
 }
 
 .left_column {
@@ -97,7 +100,7 @@ h2 {
 	float:right;
 	clear: right;
 	width:500px;
-	height:400px;
+	height:500px;
         margin:5px;
 }
 

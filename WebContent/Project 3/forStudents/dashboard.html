@@ -23,14 +23,20 @@
 </head>
 <body>
 <div id="container">
-	<h1>University of Maryland 2011 EARS Database</h1>
-	<div id="help_panel" class="panel"><div class="left_column">
+	<div class="header">
+		<span class="title">University of Maryland 2011 EARS Database</span>
+		<input id="help_button" type="button" value="Show Help"></input>
+	</div>
+	<div style="clear:both"><!-- clearfix --></div>
+	<div id="help_panel">
+		<div class="panel" style="margin-left: auto; margin-right: auto; float:none; width: 50%;">
 		<h2>Help</h2>
 		<p> Search this year's reported accidents or observe patterns. Use the sliders or drop-down boxes in the Control Panel to adjust the range of months and range of time (by 24-hour clock).  Enter a word or phrase to filter accidents.
-		<br />The table, chart, and map automatically update to match the range and/or filter in the Control Panel.
-		<br />Click on the column headers in the table to sort by that column in ascending or descending order.
-		<br />Click on the markers in the map to get information about the accident.</p>
-	</div></div>
+		The table, chart, and map automatically update to match the range and/or filter in the Control Panel.
+		Click on the column headers in the table to sort by that column in ascending or descending order.
+		Click on the flags in the map to get information about the accident.</p>
+		</div>
+	</div>
 	<div class="right right_column no_spacing">
 		<h2>Types of Reported Accidents During 2011</h2>
 		<div id="chart"></div>
@@ -131,10 +137,9 @@
 		</div>
 		
 		<div id="keywordFilter">
-			<label for="keywordInput">Word: </label>
+			<label for="keywordInput">Keyword: </label>
 			<input type="text" id="keywordInput"></input>
 			<input type="button" value="Filter" onclick="updateAll();"></input>
-			<input id="help_button" type="button" value="Show Help"></input>
 		</div>
 	</div>
 
