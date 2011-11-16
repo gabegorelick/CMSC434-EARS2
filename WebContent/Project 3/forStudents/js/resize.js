@@ -10,8 +10,10 @@ function checkAvailableWidth() {
 		helpWidth = "943px";
 		$("#header").css("text-align", "center");
 		$("#help_panel h2").css("text-align", "center");
-		$("#chart_panel h2").css("text-align", "center");
-		$("#chart_panel h2").css("margin-left", "0px");
+		$("#chart_panel1").css("display", "block");
+		$("#chart_panel2").css("display", "none");
+		$("#chart_panel1 h2").css("text-align", "center");
+		$("#chart_panel1 h2").css("margin-left", "0px");
 		$("#map").css("float", "right");
 		$("#map").css("margin-left", "0px");
 		$("#map").css("margin-right", "0px");
@@ -20,8 +22,10 @@ function checkAvailableWidth() {
 		helpWidth = "";
 		$("#header").css("text-align", "left");
 		$("#help_panel h2").css("text-align", "left");
-		$("#chart_panel h2").css("text-align", "left");
-		$("#chart_panel h2").css("margin-left", "30px");
+		$("#chart_panel2").css("display", "");
+		$("#chart_panel1").css("display", "none");
+		$("#chart_panel2 h2").css("text-align", "left");
+		$("#chart_panel2 h2").css("margin-left", "30px");
 		$("#map").css("float", "left");
 		$("#map").css("margin-left", "5px");
 		$("#map").css("margin-right", "auto");

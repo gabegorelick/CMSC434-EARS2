@@ -52,6 +52,14 @@
 	width: 350px !important;
 }
 
+.dataTables_wrapper {
+    background-color:#aaaaaa;
+    
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
 .dataTables_wrapper .ui-toolbar {
 	padding: 5px;
 }
@@ -308,7 +316,7 @@ td.details {
 }
 
 .paging_full_numbers span.paginate_button:hover {
-	background-color: #ccccc;
+	background-color: #cccccc;
 }
 
 .paging_full_numbers span.paginate_active {

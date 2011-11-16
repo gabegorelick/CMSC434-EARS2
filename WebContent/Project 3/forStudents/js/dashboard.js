@@ -17,6 +17,7 @@ var dt; // dataTable component
 var chart; // bar chart component
 
 var markersArray = [];	// markers shown on Google Map
+var toggleArray = [];	// toggling accident types
 var filteredData;
 
 var start_month = 1;  	// changing this value will affect on data filtering. connect this to slider UI
@@ -26,8 +27,15 @@ var end_hour = 23;
 
 
 $(document).ready(function() {
-		// toggle help div with button
-	$("#help_panel").hide();
+	setTrueToggleArray();
+	
+	
+	$("#monthTextStart").attr("value", ($("#monthSliderStart option:selected").text()));
+	$("#monthTextEnd").attr("value", ($("#monthSliderEnd option:selected").text()))
+	$("#hourTextStart").attr("value", ($("#hourSliderStart option:selected").text()));
+	$("#hourTextEnd").attr("value", ($("#hourSliderEnd option:selected").text()))
+	
+	// toggle help div with button
 	$("#help_button").click(function() {
 		$("#help_panel").slideToggle(500);
 		if ($("#help_button").attr("value") == "Show Help") {
@@ -51,6 +59,8 @@ $(document).ready(function() {
 		labelSrc: 'text',
 		sliderOptions: {
 			change: function(event, ui) {
+				$("#monthTextStart").attr("value", ($("#monthSliderStart option:selected").text()));
+				$("#monthTextEnd").attr("value", ($("#monthSliderEnd option:selected").text()))
 				start_month = ui.values[0] + 1; // for some reason, values doesn't use the actual value on the option
 				end_month = ui.values[1] + 1;
 				updateAll();
@@ -64,6 +74,8 @@ $(document).ready(function() {
 		labelSrc: 'text',
 		sliderOptions: {
 			change: function(event, ui) {
+				$("#hourTextStart").attr("value", ($("#hourSliderStart option:selected").text()));
+				$("#hourTextEnd").attr("value", ($("#hourSliderEnd option:selected").text()))
 				start_hour = ui.values[0]; // spec says these are 0-based
 				end_hour = ui.values[1];
 				updateAll();
@@ -76,7 +88,64 @@ $(document).ready(function() {
 		if (event.keyCode == '13') { updateAll() }
 	});
 	
-
+//	$("#chart").load( function() {
+		// making each line of legend toggle the corresponding accident	
+		$("#legend8").click( function() {
+	//		var legStr = $("#graphLabel8").text();
+			var legStr = "Sports injury";
+			if (toggleArray[legStr]) toggleArray[legStr] = false;
+			else toggleArray[legStr] = true;
+			updateAll();
+		});
+		$("#legend7").click( function() {
+			var legStr = "Assault or hijacking";
+			if (toggleArray[legStr]) toggleArray[legStr] = false;
+			else toggleArray[legStr] = true;
+			updateAll();
+		});
+		$("#legend6").click( function() {
+			var legStr = "Food poisoning";
+			if (toggleArray[legStr]) toggleArray[legStr] = false;
+			else toggleArray[legStr] = true;
+			updateAll();
+		});
+		$("#legend5").click( function() {
+			var legStr = "Animal accident";
+			if (toggleArray[legStr]) toggleArray[legStr] = false;
+			else toggleArray[legStr] = true;
+			updateAll();
+		});
+		$("#legend4").click( function() {
+			var legStr = "Work-related accident";
+			if (toggleArray[legStr]) toggleArray[legStr] = false;
+			else toggleArray[legStr] = true;
+			updateAll();
+		});
+		$("#legend3").click( function() {
+			var legStr = "Clinical negligence";
+			if (toggleArray[legStr]) toggleArray[legStr] = false;
+			else toggleArray[legStr] = true;
+			updateAll();
+		});
+		$("#legend2").click( function() {
+			var legStr = "Slip, trip, or fall";
+			if (toggleArray[legStr]) toggleArray[legStr] = false;
+			else toggleArray[legStr] = true;
+			updateAll();
+		});
+		$("#legend1").click( function() {
+			var legStr = "Bicycle accident";
+			if (toggleArray[legStr]) toggleArray[legStr] = false;
+			else toggleArray[legStr] = true;
+			updateAll();
+		});
+		$("#legend0").click( function() {
+			var legStr = "Auto accident";
+			if (toggleArray[legStr]) toggleArray[legStr] = false;
+			else toggleArray[legStr] = true;
+			updateAll();
+		});
+//	});
 });
 
 function init_table(data) {
@@ -100,7 +169,7 @@ function init_table(data) {
 		"bPaginate": false,
 		/*"sPaginationType": "full_numbers",		 pagination option */
 		"bScrollInfinite": true,
-		"bScrollCollapse": true,
+		"bScrollCollapse": false,
 		"sScrollY": "435px",
 		"bJQueryUI": true,		/* use JQuery UI theme */
 		"bFilter":false,		/* show keyword search */
@@ -151,15 +220,24 @@ function updateAll() {
 	drawBarChart(filteredData);
 }
 
+function setTrueToggleArray() {
+	for (i in accidentTypes) {
+		toggleArray[i] = true;
+	}
+}
+
 // reset button
 function resetFilters() {
+	setTrueToggleArray();
 	$("#monthSliderStart").val(1);
 	$("#monthSliderEnd").val(12);
 	$("#hourSliderStart").val(0);
 	$("#hourSliderEnd").val(23);
 	$("#keywordInput").attr("value", "");
+	
 	$('.monthSlider').change();
 	$('.hourSlider').change();
+	updateAll();
 }
 
 // To use bar chart, accidents need to be aggregated by months and then by types
@@ -232,8 +310,7 @@ function setMarkers(reportList) {
 			+ 'Building: ' + marker.building
 			+ '</div>';
 		var infoWindow = new google.maps.InfoWindow({
-			title: "Accident Details",
-			content: content,
+			content: content
 		}); 
 		
 		google.maps.event.addListener(marker,'click',function() {
@@ -251,6 +328,7 @@ function clearMarkers() {
 		markersArray.length = 0;
 	}
 }
+
 //extended feature of datatable.  Retrieve a data array for rows after filtering. Returned in the current sorting order. //
 $.fn.dataTableExt.oApi.fnGetFilteredData = function ( oSettings ) {
 	var a = [];
@@ -271,8 +349,13 @@ function getFilteredData() {
 //		var month = parseInt(item[0].split("-")[1],10);
 		var month = parseInt(item[0].split("-")[0],10);
 		if (month < start_month || month > end_month) continue;
+		
 		var hour = parseInt(item[1],10);
 		if (hour < start_hour || hour > end_hour) continue;
+		
+		// check that accident type is toggled on
+		if (toggleArray[item[3]] == false) continue;
+
 		// check keyword filter
 		if (filteringKeyword.trim() == "") { 
 			filteredData.push(item);

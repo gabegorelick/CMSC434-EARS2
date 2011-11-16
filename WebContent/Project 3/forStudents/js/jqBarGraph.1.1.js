@@ -256,7 +256,7 @@
 		for(var val in legendArr.reverse()){
 	 			legend += "<div id='legend"+legendArr[val][3]+"' style='overflow: hidden; zoom: 1;'>";
 	 			legend += "<div class='legendBar"+legendArr[val][2]+"' id='legendColor"+legendArr[val][3]+"' style='background-color:"+legendArr[val][0]+";'></div>";
-	 			legend += "<div class='legendLabel"+legendArr[val][2]+"' id='graphLabel"+unique+"'>"+legendArr[val][1]+"</div>";
+	 			legend += "<div class='legendLabel"+legendArr[val][2]+"' id='graphLabel"+legendArr[val][3]+"'>"+legendArr[val][1]+"</div>";
 	 			legend += "</div>";			
 		}
 	};

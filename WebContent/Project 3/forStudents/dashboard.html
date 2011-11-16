@@ -37,15 +37,20 @@
 		Click on the markers in the map to get information about the accident.</p>
 		</div>
 	</div>
-	<div id="chart_panel" class="right right_column no_spacing">
+	
+	<div id="chart_panel1" class="right right_column no_spacing">
 		<h2>2011 Reported Accidents</h2>
 		<div id="chart"></div>
 	</div>
-	
+
 	<div id="filter_panel" class="panel left_column">
 		<h2>Control Panel</h2>
-		<div class="slider_wrapper">
-			<label for="monthSliderStart">Month from </label>
+		<div class="slider_wrapper no_spacing">
+			<label>Months from </label>
+			<input id="monthTextStart" type="text" />
+			<label>to </label>
+			<input id="monthTextEnd" type="text" />
+			<label>2011 </label>
 			<select id="monthSliderStart" class="monthSlider slider">
 				<option value="1" selected="selected">Jan</option>
 				<option value="2">Feb</option>
@@ -60,8 +65,7 @@
 				<option value="11">Nov</option>
 				<option value="12">Dec</option>
 			</select>
-			<label for="monthSliderEnd">to </label> 
-				<select id="monthSliderEnd" class="monthSlider slider">
+			<select id="monthSliderEnd" class="monthSlider slider">
 				<option value="1">Jan</option>
 				<option value="2">Feb</option>
 				<option value="3">Mar</option>
@@ -77,21 +81,23 @@
 			</select>
 		</div>
 
-		<div class="slider_wrapper">
-			<label class="align_left">Time</label>
-			<label for="hourSliderStart">from </label>
+		<div class="slider_wrapper no_spacing">
+			<label>Time from </label>
+			<input id="hourTextStart" type="text" />
+			<label>to </label>
+			<input id="hourTextEnd" type="text" />
 			<select id="hourSliderStart" class="hourSlider slider">
 				<!-- spec says these are 0-based -->
 				<option value="0" selected="selected">00:00</option>
 				<option value="1">01:00</option>
-				<option value="2">2:00</option>
-				<option value="3">3:00</option>
-				<option value="4">4:00</option>
-				<option value="5">5:00</option>
-				<option value="6">6:00</option>
-				<option value="7">7:00</option>
-				<option value="8">8:00</option>
-				<option value="9">9:00</option>
+				<option value="2">02:00</option>
+				<option value="3">03:00</option>
+				<option value="4">04:00</option>
+				<option value="5">05:00</option>
+				<option value="6">06:00</option>
+				<option value="7">07:00</option>
+				<option value="8">08:00</option>
+				<option value="9">09:00</option>
 				<option value="10">10:00</option>
 				<option value="11">11:00</option>
 				<option value="12">12:00</option>
@@ -107,7 +113,6 @@
 				<option value="22">22:00</option>
 				<option value="23">23:00</option>
 			</select>
-			<label for="hourSliderEnd">to </label>
 			<select id="hourSliderEnd" class="hourSlider slider">
 				<option value="0">00:00</option>
 				<option value="1">01:00</option>
@@ -144,7 +149,7 @@
 		</div>
 	</div>
 
-	<div id="dataTables_wrapper">
+	<div id="dataTables_wrap">
 		<table id="dTable" class="display">
 		<thead>
 			<tr>
@@ -159,6 +164,11 @@
 		<tbody>
 		</tbody>
 		</table>
+	</div>
+
+	<div id="chart_panel2" class="right right_column no_spacing">
+		<h2>2011 Reported Accidents</h2>
+		<div id="chart"></div>
 	</div>
 
 	<div id="map"></div>

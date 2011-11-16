@@ -7,10 +7,16 @@ body {
     
 }
 
+a img {
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
 h1 {
     display: inline;
     font-family: Tahoma, Helvetica, sans-serif;
-    font-size: 2em;
+    font-size: 2.25em;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -57,21 +63,47 @@ h3 {
     padding: 0px 30px 10px 30px;
     line-height:150%;
     margin:5px;
-    background-color:#eeeeee;
-    border:1px solid #dedede;
+    background-color:#efeef0;
+    border:1px solid #aaaaaa;
     
-    border: 1px solid #aaaaaa;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
 
-#chart_panel {
+#chart_panel2 {
+    display: none;
+}
+
+#chart_panel1, #chart_panel2 {
+    float: right;
     margin-bottom: 7px;
 }
 
 #filter_panel {
     clear: left;
+}
+
+#filter_panel label {
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+#monthTextStart, #monthTextEnd, #hourTextStart, #hourTextEnd {
+    color: inherit;
+    font: inherit;
+    background: none;
+    border-width: 0px;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 5px;
+    display: inline;
+}
+#monthTextStart, #monthTextEnd {
+    width: 2em;
+}
+#hourTextStart, #hourTextEnd {
+    width: 3.15em;
 }
 
 #help_panel {
@@ -101,6 +133,7 @@ h3 {
 
 #keyword_filter {
     float: left;
+    width: 100%;
 }
 
 #help_button {
@@ -109,12 +142,15 @@ h3 {
 
 #reset_button {
     float: right;
+    position: relative;
+    left: 15px;
 }
 
-#dataTables_wrapper {
+#dataTables_wrap {
     float: left;
     clear: left;
     width: 500px;
+    height:auto;
     margin:5px;
 }
 
@@ -148,6 +184,10 @@ h3 {
 
 .slider_wrapper {
     height: 6em;
+}
+
+select {
+    display: none;
 }
 
 tbody tr td:first-child {
