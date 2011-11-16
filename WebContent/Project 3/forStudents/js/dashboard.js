@@ -7,7 +7,7 @@ var accidentTypes = {"Auto accident":{"icon":"icon_auto_accidents.png","color":"
 "Work-related accident":{"icon":"icon_work_related_accidents.png","color":"#3F7DD4"},
 "Animal accident":{"icon":"icon_animal_accidents.png","color":"#46884C"},
 "Food poisoning":{"icon":"icon_food_poisoning.png","color":"#7BC4BB"},
-"Assault or hijacking":{"icon":"icon_assulates_and_hijacking.png","color":"#A5B342"},
+"Assault or hijacking":{"icon":"icon_assaults_and_hijacking.png","color":"#A5B342"},
 "Sports injury":{"icon":"icon_sports_injury.png","color":"#9665C6"}
 };
 var colors = ["#967154","#847E1F","#EF8833","#E05A56","#3F7DD4","#46884C","#7BC4BB","#A5B342","#9665C6"];
