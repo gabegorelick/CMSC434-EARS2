@@ -87,66 +87,64 @@ $(document).ready(function() {
 	$("#keywordInput").keyup( function(event) {
 		if (event.keyCode == '13') { updateAll(); }
 	});
-	
-//	$("#chart").load( function() {
-		// making each line of legend toggle the corresponding accident	
-		$("#legend8").click( function() {
-	//		var legStr = $("#graphLabel8").text();
-			var legStr = "Sports injury";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend7").click( function() {
-			var legStr = "Assault or hijacking";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend6").click( function() {
-			var legStr = "Food poisoning";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend5").click( function() {
-			var legStr = "Animal accident";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend4").click( function() {
-			var legStr = "Work-related accident";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend3").click( function() {
-			var legStr = "Clinical negligence";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend2").click( function() {
-			var legStr = "Slip, trip, or fall";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend1").click( function() {
-			var legStr = "Bicycle accident";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend0").click( function() {
-			var legStr = "Auto accident";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-//	});
 });
+
+function attachChartEvents() {
+	$("#legend8").click( function() {
+		var legStr = "Sports injury";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend7").click( function() {
+		var legStr = "Assault or hijacking";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend6").click( function() {
+		var legStr = "Food poisoning";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend5").click( function() {
+		var legStr = "Animal accident";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend4").click( function() {
+		var legStr = "Work-related accident";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend3").click( function() {
+		var legStr = "Clinical negligence";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend2").click( function() {
+		var legStr = "Slip, trip, or fall";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend1").click( function() {
+		var legStr = "Bicycle accident";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend0").click( function() {
+		var legStr = "Auto accident";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+}
 
 function init_table(data) {
 	
@@ -207,6 +205,7 @@ function drawBarChart(data) {
 		height:200,
 		animate:false,  showValues:false
 	});
+	attachChartEvents();
 }
 function updateMap(data) {
 	setMarkers(data);				// set markers on the map
