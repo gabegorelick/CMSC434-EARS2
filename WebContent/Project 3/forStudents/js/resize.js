@@ -11,9 +11,13 @@ function checkAvailableWidth() {
 		$("#header").css("text-align", "center");
 		$("#head_img").css("margin-left", "30px");
 		$("#help_panel h2").css("text-align", "center");
+
+		$("#filter_panel").css("float", "left");
+		$("#filter_panel").css("position", "relative");
+
+		$("#container_right").css("float", "right");
 		$("#chart_panel h2").css("text-align", "center");
 		$("#chart_panel h2").css("margin-left", "0px");
-		$("#map").css("float", "right");
 		$("#map").css("margin-left", "0px");
 		$("#map").css("margin-right", "0px");
 	} else {
@@ -22,9 +26,13 @@ function checkAvailableWidth() {
 		$("#header").css("text-align", "left");
 		$("#head_img").css("margin-left", "0px");
 		$("#help_panel h2").css("text-align", "left");
+
+		$("#filter_panel").css("float", "none");
+		$("#filter_panel").css("position", "fixed");
+
+		$("#container_right").css("float", "left");
 		$("#chart_panel h2").css("text-align", "left");
 		$("#chart_panel h2").css("margin-left", "30px");
-		$("#map").css("float", "left");
 		$("#map").css("margin-left", "5px");
 		$("#map").css("margin-right", "auto");
 	}

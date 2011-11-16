@@ -59,6 +59,10 @@ h3 {
 /*    width calcuated on resize*/
 }
 
+#container_right {
+    float: right;
+}
+
 .panel {
     float: left;
     padding: 0px 30px 10px 30px;
