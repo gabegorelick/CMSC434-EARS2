@@ -78,7 +78,7 @@ function init_table(data) {
 		/*"sPaginationType": "full_numbers",		 pagination option */
 		"bScrollInfinite": true,
 		"bScrollCollapse": true,
-		"sScrollY": "470px",
+		"sScrollY": "435px",
 		"bJQueryUI": true,		/* use JQuery UI theme */
 		"bFilter":false,		/* show keyword search */
 		"bSort": true,			/* sorting enabled */
@@ -88,7 +88,7 @@ function init_table(data) {
 }
 /* create google map object */
 function init_map(data) {
-    var latlng = new google.maps.LatLng(38.991971,-76.944466);	// define initial location
+    var latlng = new google.maps.LatLng(38.98920665, -76.94282413);	// define initial location
     var options = {
       zoom: 15,
       center: latlng,

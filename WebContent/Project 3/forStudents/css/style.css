@@ -7,7 +7,8 @@ body {
     
 }
 
-.title {
+h1 {
+    display: inline;
     padding-left: 30px;
     font-family: Tahoma, Helvetica, sans-serif;
     font-size: 2em;
@@ -16,7 +17,7 @@ body {
 }
 
 .header {
-	margin: 10px 0px 20px 0px;
+	margin: 10px 0px 10px 0px;
 }
 
 h2 {
@@ -31,6 +32,7 @@ h2 {
 
 #container {
     padding: 0;
+    margin: 0;
     margin-left: auto;
     margin-right: auto;
     max-width: 1030px;
@@ -57,6 +59,8 @@ h2 {
 #help_panel {
     width: 100%;
     overflow: overlay;
+    margin: 0;
+    margin-bottom: 5px;
 }
 
 .left_column {
@@ -92,7 +96,6 @@ h2 {
         width:500px;
 	border:0px solid #eee; 
 	background-color:#fff; 
-        margin:5px;
 	padding:0px; 
 }
  
@@ -100,8 +103,8 @@ h2 {
 	float:right;
 	clear: right;
 	width:500px;
-	height:500px;
-        margin:5px;
+	height:450px;
+        margin-top:5px;
 }
 
 .left {
