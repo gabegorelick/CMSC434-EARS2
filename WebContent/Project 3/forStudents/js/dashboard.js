@@ -31,9 +31,9 @@ $(document).ready(function() {
 	
 	
 	$("#monthTextStart").attr("value", ($("#monthSliderStart option:selected").text()));
-	$("#monthTextEnd").attr("value", ($("#monthSliderEnd option:selected").text()))
+	$("#monthTextEnd").attr("value", ($("#monthSliderEnd option:selected").text()));
 	$("#hourTextStart").attr("value", ($("#hourSliderStart option:selected").text()));
-	$("#hourTextEnd").attr("value", ($("#hourSliderEnd option:selected").text()))
+	$("#hourTextEnd").attr("value", ($("#hourSliderEnd option:selected").text()));
 	
 	// toggle help div with button
 	$("#help_button").click(function() {
@@ -60,7 +60,7 @@ $(document).ready(function() {
 		sliderOptions: {
 			change: function(event, ui) {
 				$("#monthTextStart").attr("value", ($("#monthSliderStart option:selected").text()));
-				$("#monthTextEnd").attr("value", ($("#monthSliderEnd option:selected").text()))
+				$("#monthTextEnd").attr("value", ($("#monthSliderEnd option:selected").text()));
 				start_month = ui.values[0] + 1; // for some reason, values doesn't use the actual value on the option
 				end_month = ui.values[1] + 1;
 				updateAll();
@@ -75,7 +75,7 @@ $(document).ready(function() {
 		sliderOptions: {
 			change: function(event, ui) {
 				$("#hourTextStart").attr("value", ($("#hourSliderStart option:selected").text()));
-				$("#hourTextEnd").attr("value", ($("#hourSliderEnd option:selected").text()))
+				$("#hourTextEnd").attr("value", ($("#hourSliderEnd option:selected").text()));
 				start_hour = ui.values[0]; // spec says these are 0-based
 				end_hour = ui.values[1];
 				updateAll();
@@ -85,7 +85,7 @@ $(document).ready(function() {
 	
 	// for pressing enter in Filter textbox
 	$("#keywordInput").keyup( function(event) {
-		if (event.keyCode == '13') { updateAll() }
+		if (event.keyCode == '13') { updateAll(); }
 	});
 	
 //	$("#chart").load( function() {
