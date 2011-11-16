@@ -129,29 +129,29 @@ function updateAll() {
 
 function getMonth(str) {
 	if (str == "Jan") {
-		return "01"
+		return "01";
 	} else if (str == "Feb") {
-		return "02"
+		return "02";
 	} else if (str == "Mar") {
-		return "03"
+		return "03";
 	} else if (str == "Apr") {
-		return "04"
+		return "04";
 	} else if (str == "May") {
-		return "05"
+		return "05";
 	} else if (str == "Jun") {
-		return "06"
+		return "06";
 	} else if (str == "Jul") {
-		return "07"
+		return "07";
 	} else if (str == "Aug") {
-		return "08"
+		return "08";
 	} else if (str == "Sep") {
-		return "09"
+		return "09";
 	} else if (str == "Oct") {
-		return "10"
+		return "10";
 	} else if (str == "Nov") {
-		return "11"
+		return "11";
 	} else if (str == "Dec") {
-		return "12"
+		return "12";
 	}
 	
 	return false;
@@ -242,7 +242,7 @@ $.fn.dataTableExt.oApi.fnGetFilteredData = function ( oSettings ) {
 		a.push(oSettings.aoData[ oSettings.aiDisplay[i] ]._aData);
 	}
 	return a;
-}
+};
 
 // from the entire dataset, it returns items containing current keyword and within the date/hour range //
 function getFilteredData() {
