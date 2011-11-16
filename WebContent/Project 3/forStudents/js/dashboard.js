@@ -77,18 +77,19 @@ function init_table(data) {
 	dt= $('#dTable').dataTable( {		/*  constructor with options */
 		"aaData": data,			/* set the data in array format */
 		"aoColumnDefs": [{
+			"sClass": "center", "aTargets": [0, 1, 4]
+		}, {
 			"fnRender": function ( oObj ) {
 			    return months[oObj.aData[0].split(" ")[0]] + " " + oObj.aData[0].split(" ")[1];
 			},
 			"bUseRendered": false,
 	                "aTargets": [0]
-			},{
+		}, {
 			"fnRender": function ( oObj ) {
 			    return oObj.aData[1] + ":00";
 			},
 	                "aTargets": [1]
-			}
-		],
+		}],
 		"bPaginate": false,
 		/*"sPaginationType": "full_numbers",		 pagination option */
 		"bScrollInfinite": true,
