@@ -7,7 +7,7 @@ var accidentTypes = {"Auto accident":{"icon":"icon_auto_accidents.png","color":"
 "Work-related accident":{"icon":"icon_work_related_accidents.png","color":"#3F7DD4"},
 "Animal accident":{"icon":"icon_animal_accidents.png","color":"#46884C"},
 "Food poisoning":{"icon":"icon_food_poisoning.png","color":"#7BC4BB"},
-"Assault or hijacking":{"icon":"icon_assulates_and_hijacking.png","color":"#A5B342"},
+"Assault or hijacking":{"icon":"icon_assaults_and_hijacking.png","color":"#A5B342"},
 "Sports injury":{"icon":"icon_sports_injury.png","color":"#9665C6"}
 };
 var colors = ["#967154","#847E1F","#EF8833","#E05A56","#3F7DD4","#46884C","#7BC4BB","#A5B342","#9665C6"];
@@ -31,9 +31,9 @@ $(document).ready(function() {
 	
 	
 	$("#monthTextStart").attr("value", ($("#monthSliderStart option:selected").text()));
-	$("#monthTextEnd").attr("value", ($("#monthSliderEnd option:selected").text()))
+	$("#monthTextEnd").attr("value", ($("#monthSliderEnd option:selected").text()));
 	$("#hourTextStart").attr("value", ($("#hourSliderStart option:selected").text()));
-	$("#hourTextEnd").attr("value", ($("#hourSliderEnd option:selected").text()))
+	$("#hourTextEnd").attr("value", ($("#hourSliderEnd option:selected").text()));
 	
 	// toggle help div with button
 	$("#help_button").click(function() {
@@ -60,7 +60,7 @@ $(document).ready(function() {
 		sliderOptions: {
 			change: function(event, ui) {
 				$("#monthTextStart").attr("value", ($("#monthSliderStart option:selected").text()));
-				$("#monthTextEnd").attr("value", ($("#monthSliderEnd option:selected").text()))
+				$("#monthTextEnd").attr("value", ($("#monthSliderEnd option:selected").text()));
 				start_month = ui.values[0] + 1; // for some reason, values doesn't use the actual value on the option
 				end_month = ui.values[1] + 1;
 				updateAll();
@@ -75,7 +75,7 @@ $(document).ready(function() {
 		sliderOptions: {
 			change: function(event, ui) {
 				$("#hourTextStart").attr("value", ($("#hourSliderStart option:selected").text()));
-				$("#hourTextEnd").attr("value", ($("#hourSliderEnd option:selected").text()))
+				$("#hourTextEnd").attr("value", ($("#hourSliderEnd option:selected").text()));
 				start_hour = ui.values[0]; // spec says these are 0-based
 				end_hour = ui.values[1];
 				updateAll();
@@ -85,68 +85,66 @@ $(document).ready(function() {
 	
 	// for pressing enter in Filter textbox
 	$("#keywordInput").keyup( function(event) {
-		if (event.keyCode == '13') { updateAll() }
+		if (event.keyCode == '13') { updateAll(); }
 	});
-	
-//	$("#chart").load( function() {
-		// making each line of legend toggle the corresponding accident	
-		$("#legend8").click( function() {
-	//		var legStr = $("#graphLabel8").text();
-			var legStr = "Sports injury";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend7").click( function() {
-			var legStr = "Assault or hijacking";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend6").click( function() {
-			var legStr = "Food poisoning";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend5").click( function() {
-			var legStr = "Animal accident";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend4").click( function() {
-			var legStr = "Work-related accident";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend3").click( function() {
-			var legStr = "Clinical negligence";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend2").click( function() {
-			var legStr = "Slip, trip, or fall";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend1").click( function() {
-			var legStr = "Bicycle accident";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-		$("#legend0").click( function() {
-			var legStr = "Auto accident";
-			if (toggleArray[legStr]) toggleArray[legStr] = false;
-			else toggleArray[legStr] = true;
-			updateAll();
-		});
-//	});
 });
+
+function attachChartEvents() {
+	$("#legend8").click( function() {
+		var legStr = "Sports injury";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend7").click( function() {
+		var legStr = "Assault or hijacking";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend6").click( function() {
+		var legStr = "Food poisoning";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend5").click( function() {
+		var legStr = "Animal accident";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend4").click( function() {
+		var legStr = "Work-related accident";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend3").click( function() {
+		var legStr = "Clinical negligence";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend2").click( function() {
+		var legStr = "Slip, trip, or fall";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend1").click( function() {
+		var legStr = "Bicycle accident";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+	$("#legend0").click( function() {
+		var legStr = "Auto accident";
+		if (toggleArray[legStr]) toggleArray[legStr] = false;
+		else toggleArray[legStr] = true;
+		updateAll();
+	});
+}
 
 function init_table(data) {
 	
@@ -207,6 +205,7 @@ function drawBarChart(data) {
 		height:200,
 		animate:false,  showValues:false
 	});
+	attachChartEvents();
 }
 function updateMap(data) {
 	setMarkers(data);				// set markers on the map
