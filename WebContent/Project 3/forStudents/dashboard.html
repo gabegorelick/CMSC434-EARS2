@@ -27,22 +27,18 @@
 		<a href="http://www.umd.edu/"><img id="head_img" class="no_spacing" src="css/minimark.gif" alt="University of Maryland" /></a><h1>2011 EARS Database</h1>
 		<input id="help_button" type="button" value="Show Help"></input>
 	</div>
-	<div style="clear:both"><!-- clearfix --></div>
+
+	<div class="left no_spacing">
 	<div id="help_panel" class="panel">
 		<div class="left_column center">
 		<h2>Help</h2>
-		<p> Search this year's reported accidents or observe patterns. Use the sliders or drop-down boxes in the Control Panel to adjust the range of months and range of time (by 24-hour clock).  Enter a word or phrase to filter accidents.
+		<p> Search this year's reported accidents or observe patterns. Use the sliders in the Control Panel to adjust the range of months and range of time (by 24-hour clock).  Enter a word or phrase to filter accidents.
 		The table, chart, and map automatically update to match the range and/or filter in the Control Panel.
 		Click on the column headers in the table to sort by that column in ascending or descending order.
 		Click on the markers in the map to get information about the accident.</p>
 		</div>
 	</div>
 	
-	<div id="chart_panel1" class="right right_column no_spacing">
-		<h2>2011 Reported Accidents</h2>
-		<div id="chart"></div>
-	</div>
-
 	<div id="filter_panel" class="panel left_column">
 		<h2>Control Panel</h2>
 		<div class="slider_wrapper no_spacing">
@@ -148,7 +144,6 @@
 			<input id="reset_button" type="button" value="Reset" onclick="resetFilters();"></input>
 		</div>
 	</div>
-
 	<div id="dataTables_wrap">
 		<table id="dTable" class="display">
 		<thead>
@@ -165,12 +160,14 @@
 		</tbody>
 		</table>
 	</div>
+	</div>
 
-	<div id="chart_panel2" class="right right_column no_spacing">
+	<div class="right no_spacing">
+	<div id="chart_panel" class="right right_column no_spacing">
 		<h2>2011 Reported Accidents</h2>
 		<div id="chart"></div>
 	</div>
-
 	<div id="map"></div>
+	</div>
 </div>	
 </body>

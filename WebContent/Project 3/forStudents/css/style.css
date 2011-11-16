@@ -45,6 +45,7 @@ h3 {
 #header {
 	margin: 10px 0px 10px 0px;
         text-align:center;
+	clear: both;
 }
 
 #help_panel h2, #chart_panel h2{
@@ -75,12 +76,13 @@ h3 {
     display: none;
 }
 
-#chart_panel1, #chart_panel2 {
+#chart_panel {
     float: right;
     margin-bottom: 7px;
 }
 
 #filter_panel {
+    float: left;
     clear: left;
 }
 
@@ -100,10 +102,10 @@ h3 {
     display: inline;
 }
 #monthTextStart, #monthTextEnd {
-    width: 2em;
+    width: 2.5em;
 }
 #hourTextStart, #hourTextEnd {
-    width: 3.15em;
+    width: 3.5em;
 }
 
 #help_panel {
@@ -119,7 +121,7 @@ h3 {
 }
 
 .left_column {
-        width: 438px;
+    width: 438px;
 }
 
 .right_column {
