@@ -43,9 +43,8 @@ h3 {
 }
 
 #header {
-	margin: 10px 0px 10px 0px;
-        text-align:center;
-	clear: both;
+	margin: 10px 0px 5px 0px;
+        text-align: center;
 }
 
 #help_panel h2, #chart_panel h2{
@@ -55,19 +54,25 @@ h3 {
 #container {
     padding: 0;
     margin: 0px auto;
-    width: 1015px;
+    width: 1010px;
 /*    width calcuated on resize*/
+}
+
+#container_left {
+    float: left;
+    width: auto;
 }
 
 #container_right {
     float: right;
+    width: auto;
+    clear: none;
 }
 
 .panel {
     float: left;
     padding: 0px 30px 10px 30px;
     line-height:150%;
-    margin:5px;
     background-color:#efeef0;
     border:1px solid #aaaaaa;
     
@@ -76,18 +81,41 @@ h3 {
     border-radius: 5px;
 }
 
-#chart_panel2 {
+#help_panel h2, #chart_panel h2{
+    text-align: center;
+}
+#help_panel {
     display: none;
+    overflow: visible;
+    margin: 5px 0px 0px 0px;
+    float: right;
+    clear: both;
+    width: 59em;
 }
 
-#chart_panel {
-    float: right;
-    margin-bottom: 7px;
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left_column {
+    width: 438px;
+}
+
+.right_column {
+    width: 500px;
+}
+
+.no_spacing {
+    margin: 0;
+    padding: 0;
 }
 
 #filter_panel {
     float: left;
     clear: left;
+    margin: 5px 0px 0px 5px;
+
 }
 
 #filter_panel label {
@@ -112,31 +140,6 @@ h3 {
     width: 3.5em;
 }
 
-#help_panel {
-    display: none;
-    overflow: visible;
-    margin: 5px 5px 5px 0px;
-    float: right;
-}
-
-.center {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.left_column {
-    width: 438px;
-}
-
-.right_column {
-    width: 500px;
-}
-
-.no_spacing {
-    margin: 0;
-    padding: 0;
-}
-
 #keyword_filter {
     float: left;
     width: 100%;
@@ -152,20 +155,24 @@ h3 {
     left: 15px;
 }
 
+#chart_panel {
+    float: right;
+    margin: 5px 0px 2px 0px;
+}
+
 #dataTables_wrap {
     float: left;
     clear: left;
     width: 500px;
-    height:auto;
-    margin:5px;
+    height: auto;
+    margin: 5px 0px 0px 5px;
 }
 
 #chart {
-/*        float: right;*/
+	float: right;
         width:500px;
 	border:0px solid #eee; 
 	background-color:#fff; 
-	padding:0px; 
 }
  
 #map {
@@ -174,6 +181,15 @@ h3 {
 	width:500px;
 	height:450px;
         margin-top:5px;
+}
+
+
+.slider_wrapper {
+    height: 6em;
+}
+
+select {
+    display: none;
 }
 
 .infoWindow {
@@ -188,17 +204,10 @@ h3 {
     float: right;
 }
 
-.slider_wrapper {
-    height: 6em;
+.clear_both {
+    clear: both;
 }
 
-select {
-    display: none;
-}
-
-tbody tr td:first-child {
-	text-align:center;
-}
-tbody tr td:eq(2) {
-	text-align:center;
+.full {
+    width: 100%;
 }
