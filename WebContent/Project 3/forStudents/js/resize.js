@@ -8,6 +8,13 @@ function checkAvailableWidth() {
 	if (numClientWidth  > 1020) {
 		bodyWidth = "1015px";
 		helpWidth = "943px";
+		$("#header").css("text-align", "center");
+		$("#help_panel h2").css("text-align", "center");
+		$("#chart_panel h2").css("text-align", "center");
+		$("#chart_panel h2").css("margin-left", "0px");
+		$("#map").css("float", "right");
+		$("#map").css("margin-left", "0px");
+		$("#map").css("margin-right", "0px");
 	} else {
 		bodyWidth = "500px";
 		helpWidth = "";
