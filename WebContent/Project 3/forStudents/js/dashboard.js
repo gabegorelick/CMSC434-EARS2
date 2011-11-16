@@ -61,6 +61,7 @@ $(document).ready(function() {
 	$('.hourSlider').selectToUISlider({
 		tooltip: false,
 		labels: 7,
+		labelSrc: 'text',
 		sliderOptions: {
 			change: function(event, ui) {
 				start_hour = ui.values[0]; // spec says these are 0-based
@@ -72,8 +73,22 @@ $(document).ready(function() {
 });
 
 function init_table(data) {
+	
 	dt= $('#dTable').dataTable( {		/*  constructor with options */
 		"aaData": data,			/* set the data in array format */
+		"aoColumnDefs": [{
+			"fnRender": function ( oObj ) {
+			    return months[oObj.aData[0].split(" ")[0]] + " " + oObj.aData[0].split(" ")[1];
+			},
+			"bUseRendered": false,
+	                "aTargets": [0]
+			},{
+			"fnRender": function ( oObj ) {
+			    return oObj.aData[1] + ":00";
+			},
+	                "aTargets": [1]
+			}
+		],
 		"bPaginate": false,
 		/*"sPaginationType": "full_numbers",		 pagination option */
 		"bScrollInfinite": true,
@@ -88,7 +103,8 @@ function init_table(data) {
 }
 /* create google map object */
 function init_map(data) {
-    var latlng = new google.maps.LatLng(38.98920665, -76.94282413);	// define initial location
+	
+    var latlng = new google.maps.LatLng(38.98826233,-76.944944485);	// define initial location
     var options = {
       zoom: 15,
       center: latlng,
@@ -127,36 +143,6 @@ function updateAll() {
 	drawBarChart(filteredData);
 }
 
-function getMonth(str) {
-	if (str == "Jan") {
-		return "01";
-	} else if (str == "Feb") {
-		return "02";
-	} else if (str == "Mar") {
-		return "03";
-	} else if (str == "Apr") {
-		return "04";
-	} else if (str == "May") {
-		return "05";
-	} else if (str == "Jun") {
-		return "06";
-	} else if (str == "Jul") {
-		return "07";
-	} else if (str == "Aug") {
-		return "08";
-	} else if (str == "Sep") {
-		return "09";
-	} else if (str == "Oct") {
-		return "10";
-	} else if (str == "Nov") {
-		return "11";
-	} else if (str == "Dec") {
-		return "12";
-	}
-	
-	return false;
-}
-
 // To use bar chart, accidents need to be aggregated by months and then by types
 // e.g.  [[5,'Auto accident','#967154'],[3,'Bicycle accident','#847E1F'],...],'January'],    [[...],'February']   ,...
 // To use bar chart, accidents need to be aggregated by months and then by types
@@ -168,7 +154,7 @@ function convertToChartData(dataSource) {
 	for (i in dataSource) {
 		var accident = dataSource[i];
 //		var a_month = accident[0].substr(5,2);
-		var a_month = getMonth(accident[0].substring(0,3));
+		var a_month = accident[0].substring(0,2);
 		var a_type = accident[3];
 		// create key if it's the first accident for the month and the type
 		if (!aggr.hasOwnProperty(a_month)) aggr[a_month]={};
@@ -213,8 +199,8 @@ function setMarkers(reportList) {
 			position: new google.maps.LatLng(lat,lng),
 			map : map,
 			type : report[3],
-			date : report[0],
-			time : report[1],
+			date : months[report[0].split(" ")[0]] + " " + report[0].split(" ")[1] + " " + 2011,
+			time : report[1] + ":00",
 			building: report[2],
 			icon: icon
 		});
@@ -226,7 +212,7 @@ function setMarkers(reportList) {
 			+ 'Time: ' + marker.time + '<br/>'
 			+ 'Building: ' + marker.building;
 		var infoWindow = new google.maps.InfoWindow({
-		    content: content
+		    content: content,
 		}); 
 		
 		google.maps.event.addListener(marker,'click',function() {
@@ -262,7 +248,7 @@ function getFilteredData() {
 		var item = dataSource[i];
 		// check date/hour range first
 //		var month = parseInt(item[0].split("-")[1],10);
-		var month = parseInt(getMonth(item[0].split("-")[0]),10);
+		var month = parseInt(item[0].split("-")[0],10);
 		if (month < start_month || month > end_month) continue;
 		var hour = parseInt(item[1],10);
 		if (hour < start_hour || hour > end_hour) continue;
