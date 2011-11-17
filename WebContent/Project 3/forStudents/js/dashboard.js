@@ -103,11 +103,11 @@ $(document).ready(function() {
 	});
 	
 	$("#help_filter").hover( function() {
-		$("#filter_button").css({"color": "#8F5CC2", "background-color": "#3F225B"});
-		$("#keywordInput").css({"border-color": "#8F5CC2", "background-color": "#3F225B"});
+		$("#filter_button").css({"color": "#8F5CC2", "background-color": "#3F225B", "border-width": "1px"});
+		$("#keywordInput").css({"border-color": "#8F5CC2", "background-color": "#3F225B", "border-width": "1px"});
 	}, function() {
-		$("#filter_button").css({"color": "#333333", "background-color": ""});
-		$("#keywordInput").css({"border-color": "", "background-color": ""});
+		$("#filter_button").css({"color": "#333333", "background-color": "", "border-width": ""});
+		$("#keywordInput").css({"border-color": "", "background-color": "", "border-width": ""});
 	});
 	
 	$("#help_table").hover( function() {
@@ -123,9 +123,9 @@ $(document).ready(function() {
 	});
 
 	$("#help_reset").hover( function() {
-		$("#reset_button").css({"color": "#8F5CC2", "background-color": "#3F225B"});
+		$("#reset_button").css({"color": "#8F5CC2", "background-color": "#3F225B", "border-width": "1px"});
 	}, function() {
-		$("#reset_button").css({"color": "", "background-color": ""});
+		$("#reset_button").css({"color": "", "background-color": "", "border-width": ""});
 	});
 });
 
