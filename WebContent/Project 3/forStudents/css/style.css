@@ -89,11 +89,16 @@ h3 {
     display: none;
     overflow: visible;
     margin: 5px 0px 0px 0px;
+    z-index:20;
 }
 
 .help_span {
     color: #8F5CC2;
     text-decoration: underline;
+}
+
+#help_panel .left_column {
+    width: 37em;
 }
 
 .center {
