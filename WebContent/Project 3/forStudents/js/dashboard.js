@@ -87,6 +87,46 @@ $(document).ready(function() {
 	$("#keywordInput").keyup( function(event) {
 		if (event.keyCode == '13') { updateAll(); }
 	});
+	
+	// help spans
+	
+	$("#help_month").hover( function() {
+		$("#month_wrapper .ui-slider li").css({"color": "#8F5CC2"});
+	}, function() {
+		$("#month_wrapper .ui-slider li").css({"color": ""});
+	});
+	
+	$("#help_time").hover( function() {
+		$("#time_wrapper .ui-slider li").css({"color": "#8F5CC2"});
+	}, function() {
+		$("#time_wrapper .ui-slider li").css({"color": ""});
+	});
+	
+	$("#help_filter").hover( function() {
+		$("#filter_button").css({"color": "#8F5CC2", "background-color": "#3F225B"});
+		$("#keywordInput").css({"border-color": "#8F5CC2", "background-color": "#3F225B"});
+	}, function() {
+		$("#filter_button").css({"color": "#333333", "background-color": ""});
+		$("#keywordInput").css({"border-color": "", "background-color": ""});
+	});
+	
+	$("#help_table").hover( function() {
+		$("table.display thead th ").css({"color": "#8F5CC2"});
+	}, function() {
+		$("table.display thead th ").css({"color": ""});
+	});
+	
+	$("#help_legend").hover( function() {
+		$("#legendHolder11chart").css({"color": "#8F5CC2", "background-color": "#3F225B"});
+	}, function() {
+		$("#legendHolder11chart").css({"color": "", "background-color": ""});
+	});
+
+	$("#help_reset").hover( function() {
+		$("#reset_button").css({"color": "#8F5CC2", "background-color": "#3F225B"});
+	}, function() {
+		$("#reset_button").css({"color": "", "background-color": ""});
+	});
 });
 
 function attachChartEvents() {

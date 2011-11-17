@@ -1,7 +1,9 @@
-<!DOCTYPE html>
-
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 	<title>2011 EARS Database</title>
 	<style type="text/css" title="currentStyle">
 		@import "css/style.css";					/* my custom document CSS setting width, global layout, fonts etc */
@@ -22,27 +24,26 @@
 	<script type="text/javascript" src="js/selectToUISlider.jQuery.js"></script>		<!-- plugin for slider -->
 </head>
 <body><div id="container">
-<div class="full left no_spacing">
 	<div id="header">
 		<a href="http://www.umd.edu/"><img id="head_img" class="no_spacing" src="css/minimark.gif" alt="University of Maryland" /></a><h1>2011 EARS Database</h1>
-		<input id="help_button" type="button" value="Show Help"></input>
+		<input id="help_button" type="button" value="Show Help" />
 	</div>
-	<div id="container_left" class="left no_spacing">
 	<div id="help_panel" class="panel">
 		<div class="left_column center">
 		<h2>Help</h2>
-		<p> Search this year's reported accidents or observe patterns. Use the sliders in the Control Panel to adjust the range of months and range of time (by 24-hour clock).  Enter a word or phrase to filter accidents.
-		The table, chart, and map automatically update to match the range and/or filter in the Control Panel.
-		Click on the column headers in the table to sort by that column in ascending or descending order.
-		Click on
-		Click on the markers in the map to get information about the accident.</p>
+		<p> Search this year's reported accidents or observe patterns.
+		<br />Use the sliders in the Control Panel to adjust the <span id="help_month" class="help_span">range of months</span> and the <span id="help_time" class="help_span">range of time</span>. <span id="help_filter" class="help_span">Enter a word</span> or phrase to filter by.
+		<br />Click on the <span id="help_table" class="help_span">column headers</span> in the table to sort by that column.
+		<br />Click on the <span id="help_legend" class="help_span">bar chart's legend</span> to filter accidents by type.
+		<br />The table, chart, and map automatically update to match.
+		<br />Click on the <span id="help_reset" class="help_span">Reset button</span> to clear all filters.
+		<br />Click on the accident markers in the map to get information.</p>
 		</div>
 	</div>
-</div>
-<div class="left full no_spacing clear_both"></div>
+<div class="left no_spacing">
 	<div id="filter_panel" class="panel left_column">
 		<h2>Control Panel</h2>
-		<div class="slider_wrapper no_spacing">
+		<div id="month_wrapper" class="slider_wrapper no_spacing">
 			<label>Months from </label>
 			<input id="monthTextStart" type="text" />
 			<label>to </label>
@@ -78,7 +79,7 @@
 			</select>
 		</div>
 
-		<div class="slider_wrapper no_spacing">
+		<div id="time_wrapper" class="slider_wrapper no_spacing">
 			<label>Time from </label>
 			<input id="hourTextStart" type="text" />
 			<label>to </label>
@@ -140,9 +141,9 @@
 		
 		<div id="keywordFilter">
 			<label for="keywordInput">Keyword: </label>
-			<input type="text" id="keywordInput"></input>
-			<input type="button" value="Filter" onclick="updateAll();"></input>
-			<input id="reset_button" type="button" value="Reset" onclick="resetFilters();"></input>
+			<input type="text" id="keywordInput" />
+			<input id="filter_button" type="button" value="Filter" onclick="updateAll();" />
+			<input id="reset_button" type="button" value="Reset" onclick="resetFilters();" />
 		</div>
 	</div>
 	<div id="dataTables_wrap">
@@ -162,9 +163,8 @@
 		</table>
 	</div>
 </div>
-
-<div id="container_right" class="right no_spacing">
-	<div id="chart_panel" class="right right_column no_spacing">
+<div class="left no_spacing">
+	<div id="chart_panel" class="right_column no_spacing">
 		<h2>Reported Accidents in 2011</h2>
 		<div id="chart" class="no_spacing"></div>
 	</div>

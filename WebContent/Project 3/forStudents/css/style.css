@@ -2,8 +2,8 @@ body {
     font: 0.7em Verdana, Tahoma, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
-    background-color: #fff;
+    color: #33333;
+    background-color: #fefefe;
     
 }
 
@@ -59,18 +59,16 @@ h3 {
 }
 
 #container_left {
-    float: left;
     width: auto;
 }
 
 #container_right {
-    float: right;
     width: auto;
     clear: none;
 }
 
 .panel {
-    float: left;
+/*    float: left; */
     padding: 0px 30px 10px 30px;
     line-height:150%;
     background-color:#efeef0;
@@ -84,13 +82,18 @@ h3 {
 #help_panel h2, #chart_panel h2{
     text-align: center;
 }
+
 #help_panel {
+/*    float: left;
+    clear: both; */
     display: none;
     overflow: visible;
     margin: 5px 0px 0px 0px;
-    float: right;
-    clear: both;
-    width: 59em;
+}
+
+.help_span {
+    color: #8F5CC2;
+    text-decoration: underline;
 }
 
 .center {
@@ -99,7 +102,7 @@ h3 {
 }
 
 .left_column {
-    width: 438px;
+    width: 436px;
 }
 
 .right_column {
@@ -112,9 +115,8 @@ h3 {
 }
 
 #filter_panel {
-    float: left;
-    clear: left;
-    margin: 5px 0px 0px 5px;
+/*    float: left; */
+    margin: 5px 5px 0px 0px;
 
 }
 
@@ -156,31 +158,31 @@ h3 {
 }
 
 #chart_panel {
-    float: right;
+ /*   float: right; */
     margin: 5px 0px 2px 0px;
 }
 
 #dataTables_wrap {
-    float: left;
-    clear: left;
+ /*   float: left; 
+    clear: left; */
     width: 500px;
     height: auto;
-    margin: 5px 0px 0px 5px;
+    margin: 5px 5px 0px 0px;
 }
 
 #chart {
-	float: right;
-        width:500px;
-	border:0px solid #eee; 
-	background-color:#fff; 
+/*    float: right; */
+    width: 500px;
+    border-width: 0px; 
+    background-color: #ffffff; 
 }
  
 #map {
-	float:right;
-	clear: right;
-	width:500px;
-	height:450px;
-        margin-top:5px;
+/*	float: right;
+	clear: right; */
+	width: 500px;
+	height: 450px;
+        margin-top: 5px;
 }
 
 

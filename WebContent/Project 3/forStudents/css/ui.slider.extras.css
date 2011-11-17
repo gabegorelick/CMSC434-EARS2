@@ -81,7 +81,7 @@
 .ui-slider li, .ui-slider dd {
 	position: absolute;
 	overflow: visible;
-	color: #666;
+	color: #333333;
 }
 .ui-slider span.ui-slider-label {
 	position: absolute;

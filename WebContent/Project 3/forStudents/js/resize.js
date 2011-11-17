@@ -5,9 +5,9 @@ function checkAvailableWidth() {
 	var bodyWidth;
 	var helpWidth
 	
-	if (numClientWidth  > 1015) {
-		bodyWidth = "1015px";
-		helpWidth = "943px";
+	if (numClientWidth  > 1010) {
+		bodyWidth = "1010px";
+		helpWidth = "941px";
 		$("#header").css("text-align", "center");
 		$("#head_img").css("margin-left", "30px");
 		$("#help_panel h2").css("text-align", "center");
@@ -29,5 +29,5 @@ function checkAvailableWidth() {
 		$("#map").css("margin-left", "5px");
 	}
 	$("#container").css("width", bodyWidth);
-	//help_panel").css("width", helpWidth);
+	$("#help_panel").css("width", helpWidth);
 }
